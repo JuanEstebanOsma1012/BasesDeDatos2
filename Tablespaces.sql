@@ -33,3 +33,18 @@ NEXT 10184K -- Ajustes para el autoextend que facilitan la administración de es
 MAXSIZE 331473K;
 
 -- El espacio del contenedor y el volumen que se está compartiendo, si pongo el datafile fuera del volumen compartido me tiro todo =)
+
+-- Paso las tablas respectivas al tablespace correspondiente.
+
+-- TODO
+
+-- Asigno el PCTFREE a 30 para las tablas de actualizacion constante (alumno_grupo, bloque_usuario, curso)
+-- Asigno el PCTFREE a 10 para las demás tablas
+
+ALTER TABLE alumno_grupo PCTFREE 30;
+ALTER TABLE bloque_usuario PCTFREE 30;
+ALTER TABLE curso PCTFREE 30;
+
+-- TODO
+
+-- Los primeros campos de cada tabla deben ser aquellos campos requeridos y dentro de los requeridos primero se definen los de longitud fija y después los de longitud variable.
