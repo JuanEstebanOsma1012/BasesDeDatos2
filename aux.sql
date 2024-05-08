@@ -47,10 +47,19 @@ BEGIN
     INSERT INTO pregunta_examen (id_examen, id_pregunta, tiene_tiempo_maximo)
     SELECT :NEW.id_examen, id_pregunta, 'S'
     FROM (
-      SELECT id_pregunta
-      FROM pregunta
-      WHERE id_tema = :NEW.id_tema AND es_publica = 'S'
-      ORDER BY DBMS_RANDOM.RANDOM
+      SELECT * FROM (
+        SELECT id_pregunta
+        FROM pregunta
+        WHERE id_tema = :NEW.id_tema AND es_publica = 'S'
+        MINUS
+        SELECT id_pregunta
+        FROM pregunta
+        WHERE id_tema = :NEW.id_tema AND es_publica = 'S' AND id_pregunta IN (
+          SELECT id_pregunta
+          FROM pregunta_examen
+          WHERE id_examen = :NEW.id_examen
+        )
+      ) ORDER BY DBMS_RANDOM.RANDOM
     )
     WHERE ROWNUM = v_pregunta_seleccionada;
   END LOOP;
