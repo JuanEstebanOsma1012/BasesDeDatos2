@@ -1,3 +1,14 @@
+-- Generado por Oracle SQL Developer Data Modeler 23.1.0.087.0806
+--   en:        2024-05-11 02:15:06 COT
+--   sitio:      Oracle Database 11g
+--   tipo:      Oracle Database 11g
+
+
+
+-- predefined type, no DDL - MDSYS.SDO_GEOMETRY
+
+-- predefined type, no DDL - XMLTYPE
+
 CREATE TABLE alumno (
     id_alumno INTEGER NOT NULL,
     nombre    VARCHAR2(63) NOT NULL,
@@ -88,7 +99,8 @@ CREATE TABLE examen (
     num_preguntas_aleatorias INTEGER,
     id_tema                  INTEGER NOT NULL,
     id_docente               INTEGER NOT NULL,
-    id_grupo                 INTEGER NOT NULL
+    id_grupo                 INTEGER NOT NULL,
+    estado                   VARCHAR2(15) NOT NULL
 );
 
 CREATE INDEX examen_fecha_hora_inicio_idx ON
@@ -157,19 +169,19 @@ ALTER TABLE pregunta_examen ADD CONSTRAINT pregunta_examen_pk PRIMARY KEY ( id_p
                                                                             id_examen );
 
 CREATE TABLE presentacion_examen (
-    tiempo                 INTEGER,
-    terminado              CHAR(1) NOT NULL,
-    calificacion           FLOAT,
-    ip_source              VARCHAR2(15),
-    fecha_presentacion     DATE,
-    id_examen              INTEGER NOT NULL,
-    id_alumno              INTEGER NOT NULL,
-    id_presentacion_examen INTEGER NOT NULL
+    tiempo                  INTEGER,
+    terminado               CHAR(1) NOT NULL,
+    calificacion            FLOAT,
+    ip_source               VARCHAR2(15),
+    fecha_hora_presentacion DATE,
+    id_examen               INTEGER NOT NULL,
+    id_alumno               INTEGER NOT NULL,
+    id_presentacion_examen  INTEGER NOT NULL
 );
 
-CREATE INDEX pe_fecha_presentacion_idx ON
+CREATE INDEX pe_fecha_hora_presentacion_idx ON
     presentacion_examen (
-        fecha_presentacion
+        fecha_hora_presentacion
     ASC );
 
 CREATE INDEX pe_calificacion_idx ON
@@ -182,16 +194,14 @@ CREATE INDEX pe_terminado_idx ON
         terminado
     ASC );
 
-ALTER TABLE presentacion_examen ADD CONSTRAINT presentacion_examen_pk PRIMARY KEY ( id_examen,
-                                                                                    id_alumno );
+ALTER TABLE presentacion_examen ADD CONSTRAINT presentacion_examen_pk PRIMARY KEY ( id_presentacion_examen );
 
 CREATE TABLE presentacion_pregunta (
-    respuesta_correcta            CHAR(1) NOT NULL,
-    id_pregunta                   INTEGER NOT NULL,
-    id_respuesta                  INTEGER NOT NULL,
-    id_presentacion_pregunta      INTEGER NOT NULL,
-    presentacion_examen_id_examen INTEGER NOT NULL,
-    presentacion_examen_id_alumno INTEGER NOT NULL
+    respuesta_correcta       CHAR(1) NOT NULL,
+    id_pregunta              INTEGER NOT NULL,
+    id_respuesta             INTEGER,
+    id_presentacion_pregunta INTEGER NOT NULL,
+    id_presentacion_examen   INTEGER NOT NULL
 );
 
 ALTER TABLE presentacion_pregunta ADD CONSTRAINT presentacion_pregunta_pk PRIMARY KEY ( id_presentacion_pregunta );
@@ -285,10 +295,8 @@ ALTER TABLE presentacion_pregunta
         REFERENCES pregunta ( id_pregunta );
 
 ALTER TABLE presentacion_pregunta
-    ADD CONSTRAINT pp_presentacion_examen_fk FOREIGN KEY ( presentacion_examen_id_examen,
-                                                           presentacion_examen_id_alumno )
-        REFERENCES presentacion_examen ( id_examen,
-                                         id_alumno );
+    ADD CONSTRAINT pp_presentacion_examen_fk FOREIGN KEY ( id_presentacion_examen )
+        REFERENCES presentacion_examen ( id_presentacion_examen );
 
 ALTER TABLE presentacion_pregunta
     ADD CONSTRAINT pp_respuesta_fk FOREIGN KEY ( id_respuesta )
@@ -457,3 +465,48 @@ BEGIN
     :new.id_unidad := unidad_id_unidad_seq.nextval;
 END;
 /
+
+
+
+-- Informe de Resumen de Oracle SQL Developer Data Modeler: 
+-- 
+-- CREATE TABLE                            16
+-- CREATE INDEX                            15
+-- ALTER TABLE                             38
+-- CREATE VIEW                              0
+-- ALTER VIEW                               0
+-- CREATE PACKAGE                           0
+-- CREATE PACKAGE BODY                      0
+-- CREATE PROCEDURE                         0
+-- CREATE FUNCTION                          0
+-- CREATE TRIGGER                          12
+-- ALTER TRIGGER                            0
+-- CREATE COLLECTION TYPE                   0
+-- CREATE STRUCTURED TYPE                   0
+-- CREATE STRUCTURED TYPE BODY              0
+-- CREATE CLUSTER                           0
+-- CREATE CONTEXT                           0
+-- CREATE DATABASE                          0
+-- CREATE DIMENSION                         0
+-- CREATE DIRECTORY                         0
+-- CREATE DISK GROUP                        0
+-- CREATE ROLE                              0
+-- CREATE ROLLBACK SEGMENT                  0
+-- CREATE SEQUENCE                         12
+-- CREATE MATERIALIZED VIEW                 0
+-- CREATE MATERIALIZED VIEW LOG             0
+-- CREATE SYNONYM                           0
+-- CREATE TABLESPACE                        0
+-- CREATE USER                              0
+-- 
+-- DROP TABLESPACE                          0
+-- DROP DATABASE                            0
+-- 
+-- REDACTION POLICY                         0
+-- 
+-- ORDS DROP SCHEMA                         0
+-- ORDS ENABLE SCHEMA                       0
+-- ORDS ENABLE OBJECT                       0
+-- 
+-- ERRORS                                   0
+-- WARNINGS                                 0
