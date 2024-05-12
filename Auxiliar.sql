@@ -73,3 +73,6 @@ FOR EACH ROW
 BEGIN
   :NEW.fecha_presentacion := SYSDATE;
 END;
+
+-- eliminar la base de datos completa, con datos y todo
+DROP USER "C##PROYECTO_FINAL_PRUEBAS" CASCADE;
