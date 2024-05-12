@@ -18,7 +18,7 @@ MAXSIZE 165736K;
 
 -- Tablespace para índices de docentes: menor que los de datos ya que los índices generalmente ocupan menos espacio.
 CREATE TABLESPACE docente_idx
-DATAFILE 'datafiles_prueba/docente_idx.dat'
+DATAFILE 'datafiles_prueba2/docente_idx.dat'
 SIZE 6462K -- Capacidad inicial basada en la estructura y cantidad de índices de docentes.
 AUTOEXTEND ON 
 NEXT 515K -- Incrementos para gestionar la adición de nuevos índices sin problemas.
@@ -26,7 +26,7 @@ MAXSIZE 16762K;
 
 -- Tablespace para índices de estudiantes: configurado para soportar índices de las tablas de estudiantes.
 CREATE TABLESPACE alumno_idx
-DATAFILE 'datafiles_prueba/alumno_idx.dat'
+DATAFILE 'datafiles_prueba2/alumno_idx.dat'
 SIZE 127797K -- Tamaño proyectado para índices, teniendo en cuenta el número y tamaño de los índices existentes.
 AUTOEXTEND ON 
 NEXT 10184K -- Ajustes para el autoextend que facilitan la administración de espacio de índices.
