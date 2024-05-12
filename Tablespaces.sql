@@ -32,19 +32,63 @@ AUTOEXTEND ON
 NEXT 10184K -- Ajustes para el autoextend que facilitan la administración de espacio de índices.
 MAXSIZE 331473K;
 
--- El espacio del contenedor y el volumen que se está compartiendo, si pongo el datafile fuera del volumen compartido me tiro todo =)
+-- Paso las tablas respectivas al tablespace correspondiente.
 
 -- Paso las tablas respectivas al tablespace correspondiente.
 
--- TODO
+ALTER TABLE docente MOVE TABLESPACE docente;
+ALTER TABLE alumno MOVE TABLESPACE alumno;
+ALTER TABLE examen MOVE TABLESPACE docente; 
+ALTER TABLE pregunta_examen MOVE TABLESPACE docente;
+ALTER TABLE bloque_horiario MOVE TABLESPACE alumno;
+ALTER TABLE horario MOVE TABLESPACE alumno;
+ALTER TABLE alumno_grupo MOVE TABLESPACE alumno;
+ALTER TABLE nota MOVE TABLESPACE alumno;
+ALTER TABLE presentacion_examen MOVE TABLESPACE alumno;
+ALTER TABLE presentacion_pregunta MOVE TABLESPACE alumno; 
+ALTER TABLE curso MOVE TABLESPACE docente;
+ALTER TABLE unidad MOVE TABLESPACE docente;
+ALTER TABLE pregunta MOVE TABLESPACE docente;
+ALTER TABLE tema MOVE TABLESPACE docente;
+ALTER TABLE respuesta MOVE TABLESPACE docente;
+ALTER TABLE grupo MOVE TABLESPACE docente;
+
+-- Indices
+ALTER INDEX docente_identificacion_idx REBUILD TABLESPACE docente_idx;
+ALTER INDEX docente_nombre_idx REBUILD TABLESPACE docente_idx;
+ALTER INDEX docente_apellido_idx REBUILD TABLESPACE docente_idx;
+ALTER INDEX alumno_nombre_idx REBUILD TABLESPACE alumno_idx;
+ALTER INDEX examen_fecha_hora_inicio_idx REBUILD TABLESPACE docente_idx;
+ALTER INDEX examen_fecha_hora_fin_idx REBUILD TABLESPACE docente_idx;
+ALTER INDEX bh_hora_inicio_idx REBUILD TABLESPACE alumno_idx;
+ALTER INDEX bh_hora_fin_idx REBUILD TABLESPACE alumno_idx;
+ALTER INDEX bh_dia_idx REBUILD TABLESPACE alumno_idx;
+ALTER INDEX pe_fecha_hora_presentacion_idx REBUILD TABLESPACE alumno_idx;
+ALTER INDEX pe_calificacion_idx REBUILD TABLESPACE alumno_idx;
+ALTER INDEX pe_terminado_idx REBUILD TABLESPACE alumno_idx;
+ALTER INDEX respuesta_es_verdadera_idx REBUILD TABLESPACE docente_idx;
+ALTER INDEX tema_titulo_idx REBUILD TABLESPACE docente_idx;
 
 -- Asigno el PCTFREE a 30 para las tablas de actualizacion constante (alumno_grupo, bloque_usuario, curso)
--- Asigno el PCTFREE a 10 para las demás tablas
 
 ALTER TABLE alumno_grupo PCTFREE 30;
-ALTER TABLE bloque_usuario PCTFREE 30;
+ALTER TABLE bloque_horario PCTFREE 30;
 ALTER TABLE curso PCTFREE 30;
 
--- TODO
+-- Asigno el PCTFREE a 10 para las demás tablas
+
+ALTER TABLE examen PCTFREE 10;
+ALTER TABLE grupo PCTFREE 10;
+ALTER TABLE horario PCTFREE 10;
+ALTER TABLE nota PCTFREE 10;
+ALTER TABLE pregunta PCTFREE 10;
+ALTER TABLE pregunta_examen PCTFREE 10;
+ALTER TABLE presentacion_examen PCTFREE 10;
+ALTER TABLE presentacion_pregunta PCTFREE 10;
+ALTER TABLE respuesta PCTFREE 10;
+ALTER TABLE tema PCTFREE 10;
+ALTER TABLE unidad PCTFREE 10;
+ALTER TABLE docente PCTFREE 10;
+ALTER TABLE alumno PCTFREE 10;
 
 -- Los primeros campos de cada tabla deben ser aquellos campos requeridos y dentro de los requeridos primero se definen los de longitud fija y después los de longitud variable.
