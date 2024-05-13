@@ -16,32 +16,31 @@ JOIN docente d ON e.id_docente = d.id_docente
 GROUP BY ROLLUP (t.titulo, d.nombre || ' ' || d.apellido);
 
 -- Reporte de calificaciones por trimestre del año inmediatamente anterior
-SELECT id_alumno,
-       TRIM(TO_CHAR(Trimestre1, '999.99')) AS Trimestre1,
-       TRIM(TO_CHAR(Trimestre2, '999.99')) AS Trimestre2,
-       TRIM(TO_CHAR(Trimestre3, '999.99')) AS Trimestre3,
-       TRIM(TO_CHAR(Trimestre4, '999.99')) AS Trimestre4
+SELECT *
 FROM (
   SELECT pe.id_alumno,
          pe.calificacion,
-         CASE WHEN EXTRACT(MONTH FROM e.fecha_hora_fin) BETWEEN 1 AND 3 THEN pe.calificacion END AS Trimestre1,
-         CASE WHEN EXTRACT(MONTH FROM e.fecha_hora_fin) BETWEEN 4 AND 6 THEN pe.calificacion END AS Trimestre2,
-         CASE WHEN EXTRACT(MONTH FROM e.fecha_hora_fin) BETWEEN 7 AND 9 THEN pe.calificacion END AS Trimestre3,
-         CASE WHEN EXTRACT(MONTH FROM e.fecha_hora_fin) BETWEEN 10 AND 12 THEN pe.calificacion END AS Trimestre4
+         CASE 
+             WHEN TO_CHAR(e.fecha_hora_fin, 'mm') BETWEEN 1 AND 3 THEN 'Trimestre1'
+             WHEN TO_CHAR(e.fecha_hora_fin, 'mm') BETWEEN 4 AND 6 THEN 'Trimestre2'
+             WHEN TO_CHAR(e.fecha_hora_fin, 'mm') BETWEEN 7 AND 9 THEN 'Trimestre3'
+             WHEN TO_CHAR(e.fecha_hora_fin, 'mm') BETWEEN 10 AND 12 THEN 'Trimestre4'
+         END AS Trimestre
   FROM presentacion_examen pe
   JOIN examen e ON pe.id_examen = e.id_examen
   WHERE e.fecha_hora_fin BETWEEN TRUNC(SYSDATE, 'YEAR') - INTERVAL '1' YEAR AND TRUNC(SYSDATE, 'YEAR') - INTERVAL '1' DAY 
 )
 PIVOT (
   AVG(calificacion)
-  FOR (EXTRACT(MONTH FROM fecha_hora_fin)) IN (
-    (1, 2, 3) AS Trimestre1,
-    (4, 5, 6) AS Trimestre2,
-    (7, 8, 9) AS Trimestre3,
-    (10, 11, 12) AS Trimestre4
+  FOR Trimestre IN (
+    'Trimestre1' AS Trimestre1,
+    'Trimestre2' AS Trimestre2,
+    'Trimestre3' AS Trimestre3,
+    'Trimestre4' AS Trimestre4
   )
 )
 ORDER BY id_alumno;
+
 
 -- Cantidad de preguntas por tema y profesor, por tema, por profesor y en general
 SELECT 
