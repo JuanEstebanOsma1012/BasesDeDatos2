@@ -148,7 +148,7 @@ CREATE INDEX pregunta_tipo_pregunta_idx ON
 ALTER TABLE pregunta ADD CONSTRAINT pregunta_pk PRIMARY KEY ( id_pregunta );
 
 CREATE TABLE pregunta_examen (
-    procentaje_examen   INTEGER,
+    porcentaje_examen   INTEGER,
     tiempo_pregunta     INTEGER,
     tiene_tiempo_maximo CHAR(1) NOT NULL,
     id_pregunta         INTEGER NOT NULL,
