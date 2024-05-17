@@ -214,3 +214,75 @@ END;
 
 ALTER TABLE departments DROP COLUMN presupuesto;
 ALTER TABLE departments ADD resupuesto NUMBER(8,2) DEFAULT 10000;
+
+------------------------------------------------------------- TALLER DISPARADORES -------------------------------------------------------------------
+
+--Cuando un producto es agregado a la venta de un cliente, se debe verificar si hay inventario suficiente en el almacén, 
+--en caso de no haberlo se debe anular ese registro (en estado guardar un 0) y 
+--calcular el descuento ese producto. 
+
+
+
+
+
+
+--Cuando el cliente decide comprar la venta (estado = 1), se debe descontar del inventario del almacén, la cantidad comprada de cada producto, 
+--también se debe calcular el total de la venta, ingresar de manera automática la fecha de la compra, poner el estado de la compra en 1
+--y acumular los puntos obtenidos por el cliente.
+-- test missing
+
+CREATE OR REPLACE TRIGGER trg_update_inventory_calculate_total
+AFTER UPDATE OF estado ON Venta
+FOR EACH ROW
+WHEN (NEW.estado = '1')
+DECLARE
+    v_total NUMBER := 0;
+    v_puntos INTEGER;
+BEGIN
+
+ -- Actualizar inventario
+    FOR r IN (SELECT iv.Producto_idProducto, iv.cantidad, ia.Almacen_idAlmacen
+              FROM itemVenta iv
+              JOIN inventarioAlmacen ia ON iv.Producto_idProducto = ia.Producto_idProducto
+              WHERE iv.Venta_numero = :NEW.numero) LOOP
+        UPDATE inventarioAlmacen
+        SET cantidad = cantidad - r.cantidad
+        WHERE Producto_idProducto = r.Producto_idProducto
+          AND Almacen_idAlmacen = r.Almacen_idAlmacen;
+    END LOOP;
+
+ -- Calcular el total de la venta
+    FOR r IN (SELECT iv.cantidad, p.precio, iv.descuento
+              FROM itemVenta iv
+              JOIN Producto p ON iv.Producto_idProducto = p.idProducto
+              WHERE iv.Venta_numero = :NEW.numero) LOOP
+        v_total := v_total + (r.cantidad * r.precio * (1 - r.descuento / 100));
+    END LOOP;
+
+  -- Actualizar totalVenta y fecha de la venta
+    UPDATE Venta
+    SET totalVenta = v_total,
+        fecha = SYSDATE
+    WHERE numero = :NEW.numero;
+
+ -- Acumular puntos al cliente
+    v_puntos := v_total / 10; -- Asumiendo que 1 punto se gana por cada 10 unidades de la moneda gastadas
+    UPDATE tarjetaCliente
+    SET puntos = puntos + v_puntos
+    WHERE numero = (SELECT tarjetaCliente FROM Cliente WHERE idCliente = :NEW.Cliente_idCliente);
+END;
+
+--Cuando un empleado anula, elimina o modifica una venta o detalle de la venta, 
+--se debe guardar un registro en la tabla auditoria (fecha hora las del sistema, 
+--acción se refiere al tipo de operación es decir “Modificar” o “eliminar”, idRegistro representa el número de la venta), 
+--en caso de eliminar o anular la venta se debe retornar al inventario la cantidad de cada producto relacionado a esa venta.
+
+
+
+--Cuando se anula un registro de itemVenta, se debe registrar en la tabla auditoria, 
+--asimismo devolver al inventario la cantidad comprada de ese producto
+
+
+
+--Cuando se modifique el precio de un producto, se debe actualizar el precio de los productos de las ventas y el total de la ventas, 
+--de aquellas que no se han comprado (estado = 0) .
