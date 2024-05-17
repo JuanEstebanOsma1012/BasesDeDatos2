@@ -220,7 +220,7 @@ ALTER TABLE departments ADD resupuesto NUMBER(8,2) DEFAULT 10000;
 --Cuando un producto es agregado a la venta de un cliente, se debe verificar si hay inventario suficiente en el almacén, 
 --en caso de no haberlo se debe anular ese registro (en estado guardar un 0) y 
 --calcular el descuento ese producto. 
-
+-- test missing
 
 
 
@@ -276,12 +276,12 @@ END;
 --se debe guardar un registro en la tabla auditoria (fecha hora las del sistema, 
 --acción se refiere al tipo de operación es decir “Modificar” o “eliminar”, idRegistro representa el número de la venta), 
 --en caso de eliminar o anular la venta se debe retornar al inventario la cantidad de cada producto relacionado a esa venta.
-
+-- test missing
 
 
 --Cuando se anula un registro de itemVenta, se debe registrar en la tabla auditoria, 
 --asimismo devolver al inventario la cantidad comprada de ese producto
-
+-- test missing
 
 
 --Cuando se modifique el precio de un producto, se debe actualizar el precio de los productos de las ventas y el total de la ventas, 
