@@ -73,3 +73,144 @@ FOR EACH ROW
 BEGIN
   :NEW.fecha_presentacion := SYSDATE;
 END;
+
+------------------------------------------------------------- TALLER 2 PL / SQL -------------------------------------------------------------------
+
+-- Cree un disparador que cree el historial de trabajo cuando un empleado cambie de departamento o de trabajo
+-- test missing
+
+CREATE OR REPLACE TRIGGER crear_historial
+AFTER UPDATE OF department_id, job_id ON employees
+FOR EACH ROW
+DECLARE
+BEGIN
+
+    IF :NEW.department_id = :OLD.department_id AND :NEW.job_id = :OLD.job_id THEN
+        RAISE_APPLICATION_ERROR(-20001, 'el departamento, trabajo o ambos que está intentando actualizar es el mismo que ya tenia el empleado, no es necesario hacer una nueva entrada en el historial de trabajos');
+    END IF;
+    
+    INSERT INTO job_history VALUES (:OLD.employee_id, :OLD.hire_date, SYSDATE - 1, :OLD.job_id, :OLD.department_id);
+    :NEW.hire_date := SYSDATE;
+
+END;
+
+-- Cree un disparador que permita insertar un empleado solo si el departamento tiene presupuesto para contratarlo, para saber esto, una vez insertado el empleado se debe disminuir el valor del presupuesto.
+-- test missing
+
+CREATE OR REPLACE TRIGGER validar_presupuesto
+BEFORE INSERT ON employees
+FOR EACH ROW
+DECLARE
+    presupuesto departments.presupuesto%TYPE;
+BEGIN
+
+    SELECT presupuesto INTO presupuesto
+    FROM departments
+    WHERE department_id = :NEW.department_id;
+
+    IF presupuesto < :NEW.salary THEN
+        RAISE_APPLICATION_ERROR(-20002, 'el departamento no tiene suficiente presupuesto para contratar a este empleado');
+    END IF;
+    
+    UPDATE departments SET presupuesto = presupuesto - :NEW.salary;
+
+END;
+
+-- Realice un disparador que al cambiar de salario al empleado actualice el presupuesto del departamento
+-- test missing
+
+CREATE OR REPLACE TRIGGER actualizar_presupuesto_departamento
+AFTER UPDATE OF salary ON employees
+FOR EACH ROW
+BEGIN
+
+    UPDATE departments SET presupuesto = presupuesto + :OLD.salary - :NEW.salary;
+
+END;
+
+-- Cree un procedimiento que reciba código del país, el nombre del país y el nombre de la región. El procedimiento debe permitir insertar un país, si el nombre de la región no existe debe crear la región y el país.
+-- test missing
+
+CREATE OR REPLACE PROCEDURE insertar_pais (
+    codigo_pais IN countries.country_id%TYPE,
+    nombre_pais IN countries.country_name%TYPE,
+    nombre_region IN regions.region_name%TYPE
+) IS
+    
+    existe_region INTEGER;
+    last_region_id INTEGER;
+    new_region_id INTEGER;
+    
+BEGIN
+
+    SELECT COUNT(*) INTO existe_region FROM regions WHERE region_name = nombre_region;
+    
+    IF existe_region = 0 THEN
+        
+        SELECT MAX(region_id) INTO last_region_id FROM regions;
+        
+        new_region_id := last_region_id + 1;
+
+        INSERT INTO regions VALUES (new_region_id, nombre_region);
+        
+    ELSE
+
+        SELECT region_id INTO new_region_id FROM regions WHERE region_name = nombre_region;
+
+    END IF;
+
+    INSERT INTO countries VALUES (codigo_pais, nombre_pais, new_region_id);
+    
+END;
+
+-- Cree una función que dada el código de la ciudad calcule el máximo salario en esa ciudad,luego cree una consulta que muestre
+-- por ciudad el empleado con mayor salario, debe usar esta función dentro de la consulta.
+
+CREATE OR REPLACE FUNCTION maximo_salario_ciudad (
+    nombre_ciudad IN locations.city%TYPE
+) RETURN employees.salary%TYPE
+IS
+    maximo_salario employees.salary%TYPE;
+BEGIN
+
+    SELECT MAX(em.salary) INTO maximo_salario FROM employees em
+    JOIN departments de ON em.department_id = de.department_id
+    JOIN locations lo ON de.location_id = lo.location_id
+    WHERE lo.city = nombre_ciudad;
+    
+    RETURN maximo_salario;
+
+END maximo_salario_ciudad;
+
+SELECT lo.city, em.first_name, em.last_name, em.salary FROM locations lo
+JOIN departments de ON lo.location_id = de.location_id
+JOIN employees em ON de.department_id = em.department_id
+WHERE em.salary = maximo_salario_ciudad(lo.city);
+
+-- Cree un disparador que permita modificar un jefe de un empleado, debe validar que una
+-- persona puede tenar máximo 4 subordinados y que estos deben estar en el mismo
+-- departamento que él.
+-- test missing
+
+CREATE OR REPLACE TRIGGER maximo_4_subordinados
+BEFORE UPDATE OF department_id, manager_id ON employees
+FOR EACH ROW
+DECLARE
+    cantidad_empleados INTEGER;
+    id_departamento_jefe employees.employee_id%TYPE;
+BEGIN
+
+    SELECT COUNT(*) INTO cantidad_empleados FROM employees WHERE manager_id = :NEW.manager_id;
+    IF cantidad_empleados > 4 THEN
+        RAISE_APPLICATION_ERROR(-20003, 'el jefe que está intentando asignar al empleado ya tiene 4 o mas empleados, no es posible hacer la actualizacion');
+    END IF;
+    
+    SELECT department_id INTO id_departamento_jefe FROM employees WHERE manager_id = :NEW.manager_id;
+    IF id_departamento_jefe <> :NEW.department_id THEN
+        RAISE_APPLICATION_ERROR(-20004, 'el departamento que le está intentando asignar no corresponde al departamento del deje, operacion fallida');
+    END IF;
+
+END;
+
+ALTER TABLE departments DROP COLUMN presupuesto;
+ALTER TABLE departments ADD resupuesto NUMBER(8,2) DEFAULT 10000;
