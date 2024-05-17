@@ -12,7 +12,7 @@ GROUP BY n.id_alumno, t.id_tema;
 -- Vista para calcular la duración de cada bloque horario (finalidad de reportes)
 CREATE OR REPLACE VIEW DuracionBloqueHorario AS
 SELECT id_bloque_horario, (TO_CHAR(hora_fin, 'hh') - TO_CHAR(hora_inicio, 'hh')) AS Duracion 
-FROM bloque_horario;
+FROM bloque_horiario;
 -- Esta vista permite obtener la duración de cada bloque horario sin tener que hacer la resta en cada consulta.
 
 -- Vista de información básica del estudiante para el rol Estudiante (informacion del perfil) dependiendo del ID del estudiante, con informacion de los grupos a los que pertenece y los cursos de estos grupos
@@ -44,7 +44,7 @@ WHERE e.estado = 'LIBERADO' AND e.fecha_hora_inicio <= SYSDATE AND e.fecha_hora_
 CREATE OR REPLACE VIEW V_InfoGeneral AS
 SELECT 
     (SELECT COUNT(*) FROM Docente) AS total_docentes,
-    (SELECT COUNT(*) FROM Estudiante) AS total_estudiantes,
+    (SELECT COUNT(*) FROM ALUMNO) AS total_alumnos,
     (SELECT COUNT(*) FROM Curso) AS total_cursos,
     (SELECT COUNT(*) FROM Examen) AS total_examenes;
 -- Esta vista muestra información general del sistema para el administrador, como la cantidad de docentes, estudiantes, cursos y exámenes en el sistema.

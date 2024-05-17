@@ -1,62 +1,62 @@
 -- Crear Roles
-CREATE ROLE DocenteRol;
-CREATE ROLE EstudianteRol;
-CREATE ROLE AdministradorRol;
+CREATE ROLE C##DocenteRol;
+CREATE ROLE C##EstudianteRol;
+CREATE ROLE C##AdministradorRol;
 
 -- Privilegios de Objeto
 
--- DocenteRol
-GRANT INSERT, SELECT ON Respuesta TO DocenteRol;
-GRANT SELECT, INSERT, UPDATE ON Pregunta TO DocenteRol;
-GRANT INSERT, SELECT ON PreguntaExamen TO DocenteRol;
-GRANT SELECT ON Tema TO DocenteRol;
-GRANT INSERT, SELECT, UPDATE ON Examen TO DocenteRol;
-GRANT SELECT ON Docente TO DocenteRol;
-GRANT SELECT ON Curso TO DocenteRol;
-GRANT SELECT ON Grupo TO DocenteRol;
+-- C##DocenteRol
+GRANT INSERT, SELECT ON Respuesta TO C##DocenteRol;
+GRANT SELECT, INSERT, UPDATE ON Pregunta TO C##DocenteRol;
+GRANT INSERT, SELECT ON Pregunta_Examen TO C##DocenteRol;
+GRANT SELECT ON Tema TO C##DocenteRol;
+GRANT INSERT, SELECT, UPDATE ON Examen TO C##DocenteRol;
+GRANT SELECT ON Docente TO C##DocenteRol;
+GRANT SELECT ON Curso TO C##DocenteRol;
+GRANT SELECT ON Grupo TO C##DocenteRol;
 
--- EstudianteRol
-GRANT SELECT ON Respuesta TO EstudianteRol;
-GRANT SELECT ON Pregunta TO EstudianteRol;
-GRANT SELECT ON PreguntaExamen TO EstudianteRol;
-GRANT INSERT, UPDATE, SELECT ON PresentacionPregunta TO EstudianteRol;
-GRANT SELECT ON Examen TO EstudianteRol;
-GRANT INSERT, UPDATE, SELECT ON PresentacionExamen TO EstudianteRol;
-GRANT SELECT ON AlumnoGrupo TO EstudianteRol;
+-- C##EstudianteRol
+GRANT SELECT ON Respuesta TO C##EstudianteRol;
+GRANT SELECT ON Pregunta TO C##EstudianteRol;
+GRANT SELECT ON Pregunta_Examen TO C##EstudianteRol;
+GRANT INSERT, UPDATE, SELECT ON Presentacion_Pregunta TO C##EstudianteRol;
+GRANT SELECT ON Examen TO C##EstudianteRol;
+GRANT INSERT, UPDATE, SELECT ON Presentacion_Examen TO C##EstudianteRol;
+GRANT SELECT ON Alumno_Grupo TO C##EstudianteRol;
 
--- AdministradorRol
-GRANT SELECT, UPDATE, INSERT ON Docente TO AdministradorRol;
-GRANT SELECT, UPDATE, INSERT ON Alumno TO AdministradorRol;
-GRANT SELECT, UPDATE, INSERT ON Examen TO AdministradorRol;
-GRANT SELECT, UPDATE, INSERT ON Pregunta TO AdministradorRol;
-GRANT SELECT, UPDATE, INSERT ON Tema TO AdministradorRol;
-GRANT SELECT, UPDATE, INSERT ON Respuesta TO AdministradorRol;
-GRANT SELECT, UPDATE, INSERT ON Grupo TO AdministradorRol;
-GRANT SELECT, UPDATE, INSERT ON PresentacionExamen TO AdministradorRol;
-GRANT SELECT, UPDATE, INSERT ON PresentacionPregunta TO AdministradorRol;
-GRANT SELECT, UPDATE, INSERT ON Curso TO AdministradorRol;
-GRANT SELECT, UPDATE, INSERT ON Unidad TO AdministradorRol;
-GRANT SELECT, UPDATE, INSERT ON PreguntaExamen TO AdministradorRol;
-GRANT SELECT, UPDATE, INSERT ON BloqueHorario TO AdministradorRol;
-GRANT SELECT, UPDATE, INSERT ON Horario TO AdministradorRol;
-GRANT SELECT, UPDATE, INSERT ON AlumnoGrupo TO AdministradorRol;
-GRANT SELECT, UPDATE, INSERT ON Nota TO AdministradorRol;
+-- C##AdministradorRol
+GRANT SELECT, UPDATE, INSERT ON Docente TO C##AdministradorRol;
+GRANT SELECT, UPDATE, INSERT ON Alumno TO C##AdministradorRol;
+GRANT SELECT, UPDATE, INSERT ON Examen TO C##AdministradorRol;
+GRANT SELECT, UPDATE, INSERT ON Pregunta TO C##AdministradorRol;
+GRANT SELECT, UPDATE, INSERT ON Tema TO C##AdministradorRol;
+GRANT SELECT, UPDATE, INSERT ON Respuesta TO C##AdministradorRol;
+GRANT SELECT, UPDATE, INSERT ON Grupo TO C##AdministradorRol;
+GRANT SELECT, UPDATE, INSERT ON Presentacion_Examen TO C##AdministradorRol;
+GRANT SELECT, UPDATE, INSERT ON Presentacion_Pregunta TO C##AdministradorRol;
+GRANT SELECT, UPDATE, INSERT ON Curso TO C##AdministradorRol;
+GRANT SELECT, UPDATE, INSERT ON Unidad TO C##AdministradorRol;
+GRANT SELECT, UPDATE, INSERT ON Pregunta_Examen TO C##AdministradorRol;
+GRANT SELECT, UPDATE, INSERT ON Bloque_Horiario TO C##AdministradorRol;
+GRANT SELECT, UPDATE, INSERT ON Horario TO C##AdministradorRol;
+GRANT SELECT, UPDATE, INSERT ON Alumno_Grupo TO C##AdministradorRol;
+GRANT SELECT, UPDATE, INSERT ON Nota TO C##AdministradorRol;
 
 -- Privilegios del Sistema
 
 -- Todos los roles
-GRANT CREATE SESSION TO DocenteRol, EstudianteRol, AdministradorRol;
+GRANT CREATE SESSION TO C##DocenteRol, C##EstudianteRol, C##AdministradorRol;
 
 -- Usuarios de Prueba
 
--- DocenteRol
-CREATE USER DocenteRol_prueba IDENTIFIED BY DocenteRol123;
-GRANT DocenteRol TO DocenteRol_prueba;
+-- C##DocenteRol
+CREATE USER C##DocenteRol_prueba IDENTIFIED BY C##DocenteRol123;
+GRANT C##DocenteRol TO C##DocenteRol_prueba;
 
--- EstudianteRol
-CREATE USER EstudianteRol_prueba IDENTIFIED BY EstudianteRol123;
-GRANT EstudianteRol TO EstudianteRol_prueba;
+-- C##EstudianteRol
+CREATE USER C##EstudianteRol_prueba IDENTIFIED BY C##EstudianteRol123;
+GRANT C##EstudianteRol TO C##EstudianteRol_prueba;
 
--- AdministradorRol
+-- C##AdministradorRol
 CREATE USER admin_prueba IDENTIFIED BY admin123;
-GRANT AdministradorRol TO admin_prueba;
+GRANT C##AdministradorRol TO admin_prueba;
