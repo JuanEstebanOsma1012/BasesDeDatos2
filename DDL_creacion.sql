@@ -148,7 +148,7 @@ CREATE INDEX pregunta_tipo_pregunta_idx ON
 ALTER TABLE pregunta ADD CONSTRAINT pregunta_pk PRIMARY KEY ( id_pregunta );
 
 CREATE TABLE pregunta_examen (
-    porcentaje_examen   INTEGER,
+    procentaje_examen   INTEGER,
     tiempo_pregunta     INTEGER,
     tiene_tiempo_maximo CHAR(1) NOT NULL,
     id_pregunta         INTEGER NOT NULL,
@@ -224,10 +224,11 @@ CREATE INDEX tema_titulo_idx ON
 ALTER TABLE tema ADD CONSTRAINT tema_pk PRIMARY KEY ( id_tema );
 
 CREATE TABLE unidad (
-    id_unidad   INTEGER NOT NULL,
-    titulo      VARCHAR2(31) NOT NULL,
-    descripcion VARCHAR2(255),
-    id_curso    INTEGER NOT NULL
+    id_unidad    INTEGER NOT NULL,
+    titulo       VARCHAR2(31) NOT NULL,
+    descripcion  VARCHAR2(255),
+    id_curso     INTEGER NOT NULL,
+    tema_id_tema INTEGER NOT NULL
 );
 
 ALTER TABLE unidad ADD CONSTRAINT unidad_pk PRIMARY KEY ( id_unidad );
@@ -323,6 +324,10 @@ ALTER TABLE respuesta
 ALTER TABLE unidad
     ADD CONSTRAINT unidad_curso_fk FOREIGN KEY ( id_curso )
         REFERENCES curso ( id_curso );
+
+ALTER TABLE unidad
+    ADD CONSTRAINT unidad_tema_fk FOREIGN KEY ( tema_id_tema )
+        REFERENCES tema ( id_tema );
 
 CREATE SEQUENCE alumno_id_alumno_seq START WITH 1 NOCACHE ORDER;
 
