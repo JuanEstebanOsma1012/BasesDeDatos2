@@ -211,9 +211,10 @@ CREATE INDEX respuesta_es_verdadera_idx ON
 ALTER TABLE respuesta ADD CONSTRAINT respuesta_pk PRIMARY KEY ( id_respuesta );
 
 CREATE TABLE tema (
-    id_tema     INTEGER NOT NULL,
-    titulo      VARCHAR2(63) NOT NULL,
-    descripcion VARCHAR2(255)
+    id_tema          INTEGER NOT NULL,
+    titulo           VARCHAR2(63) NOT NULL,
+    descripcion      VARCHAR2(255),
+    unidad_id_unidad INTEGER NOT NULL
 );
 
 CREATE INDEX tema_titulo_idx ON
@@ -224,11 +225,10 @@ CREATE INDEX tema_titulo_idx ON
 ALTER TABLE tema ADD CONSTRAINT tema_pk PRIMARY KEY ( id_tema );
 
 CREATE TABLE unidad (
-    id_unidad    INTEGER NOT NULL,
-    titulo       VARCHAR2(31) NOT NULL,
-    descripcion  VARCHAR2(255),
-    id_curso     INTEGER NOT NULL,
-    tema_id_tema INTEGER NOT NULL
+    id_unidad   INTEGER NOT NULL,
+    titulo      VARCHAR2(31) NOT NULL,
+    descripcion VARCHAR2(255),
+    id_curso    INTEGER NOT NULL
 );
 
 ALTER TABLE unidad ADD CONSTRAINT unidad_pk PRIMARY KEY ( id_unidad );
@@ -321,13 +321,13 @@ ALTER TABLE respuesta
     ADD CONSTRAINT respuesta_pregunta_fk FOREIGN KEY ( id_pregunta )
         REFERENCES pregunta ( id_pregunta );
 
+ALTER TABLE tema
+    ADD CONSTRAINT tema_unidad_fk FOREIGN KEY ( unidad_id_unidad )
+        REFERENCES unidad ( id_unidad );
+
 ALTER TABLE unidad
     ADD CONSTRAINT unidad_curso_fk FOREIGN KEY ( id_curso )
         REFERENCES curso ( id_curso );
-
-ALTER TABLE unidad
-    ADD CONSTRAINT unidad_tema_fk FOREIGN KEY ( tema_id_tema )
-        REFERENCES tema ( id_tema );
 
 CREATE SEQUENCE alumno_id_alumno_seq START WITH 1 NOCACHE ORDER;
 
