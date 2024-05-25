@@ -89,7 +89,7 @@ CREATE TABLE examen (
     id_tema                  INTEGER NOT NULL,
     id_docente               INTEGER NOT NULL,
     id_grupo                 INTEGER NOT NULL,
-    estado                   VARCHAR2(15) DEFAULT 'CREADO' NOT NULL
+    estado                   VARCHAR2(15) DEFAULT 'EN-CREACION' NOT NULL
 );
 
 CREATE INDEX examen_fecha_hora_inicio_idx ON
