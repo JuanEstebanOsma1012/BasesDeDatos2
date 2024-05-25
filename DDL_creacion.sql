@@ -79,7 +79,7 @@ ALTER TABLE docente ADD CONSTRAINT docente_pk PRIMARY KEY ( id_docente );
 CREATE TABLE examen (
     id_examen                INTEGER NOT NULL,
     tiempo_max               INTEGER DEFAULT 120 NOT NULL,
-    numero_preguntas         INTEGER NOT NULL,
+    numero_preguntas         INTEGER  DEFAULT 0 NOT NULL,
     porcentaje_curso         INTEGER NOT NULL,
     nombre                   VARCHAR2(63),
     porcentaje_aprobatorio   INTEGER DEFAULT 60 NOT NULL,
@@ -89,7 +89,7 @@ CREATE TABLE examen (
     id_tema                  INTEGER NOT NULL,
     id_docente               INTEGER NOT NULL,
     id_grupo                 INTEGER NOT NULL,
-    estado                   VARCHAR2(15) NOT NULL
+    estado                   VARCHAR2(15) DEFAULT 'CREADO' NOT NULL
 );
 
 CREATE INDEX examen_fecha_hora_inicio_idx ON
