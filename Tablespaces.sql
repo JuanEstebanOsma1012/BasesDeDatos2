@@ -3,7 +3,8 @@
 -- Tablespace para docentes: asignado con espacio suficiente para el crecimiento de datos relacionados con docentes.
 CREATE TABLESPACE docente
 DATAFILE '/opt/oracle/oradata/tablespaces/docente.dat' 
-SIZE 3231K
+-- SIZE 3231K -- necesita mas tamaño por el limite inferior de los bloques
+SIZE 7000K
 AUTOEXTEND ON 
 NEXT 258K -- Incrementos para el autoextend que permiten un crecimiento progresivo sin intervención manual.
 MAXSIZE 8381K; -- Sin límite para permitir la expansión conforme a las necesidades futuras.
