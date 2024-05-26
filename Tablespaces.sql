@@ -72,7 +72,7 @@ ALTER INDEX tema_titulo_idx REBUILD TABLESPACE docente_idx;
 -- Asigno el PCTFREE a 30 para las tablas de actualizacion constante (alumno_grupo, bloque_usuario, curso)
 
 ALTER TABLE alumno_grupo PCTFREE 30;
-ALTER TABLE bloque_horiario PCTFREE 30;
+ALTER TABLE bloque_horario PCTFREE 30;
 ALTER TABLE curso PCTFREE 30;
 
 -- Asigno el PCTFREE a 10 para las demás tablas
