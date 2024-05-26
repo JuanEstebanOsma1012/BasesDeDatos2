@@ -117,6 +117,45 @@ INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (25, 'E
 
 
 
+-- Relacionados con Revoluciones del Mundo (id_unidad = 22)
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (1, 'Revolución Industrial', 'Impacto socioeconómico y tecnológico del siglo XIX.',22);
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (11, 'Imperio Romano', 'Historia, gobierno y cultura del antiguo imperio romano.', 23);
+
+-- Relacionados con Grandes Imperios (id_unidad = 23)
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (2, 'Ecuaciones Diferenciales', 'Métodos para resolver ecuaciones que contienen derivadas.', 22);
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (13, 'Arte del Renacimiento', 'Obras artísticas y características del Renacimiento.', 23);
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (23, 'Neurociencia Cognitiva', 'Estudio de los procesos mentales y su base neural.', 23);
+
+-- Relacionados con Biología Celular: Introducción (id_unidad = 24)
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (26, 'Biología Celular', 'Estudio de la estructura celular.', 24);
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (14, 'Genética Molecular', 'Estudio de la estructura y función de los genes.', 24);
+
+-- Relacionados con Evolución: Introducción (id_unidad = 25)
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (4, 'Teoría de la Evolución', 'Principios y mecanismos de la evolución biológica.', 25);
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (9, 'Ecología y Conservación', 'Interacciones entre los organismos y su entorno.', 25);
+
+
+-- Datos de tema con id_unidad = 21
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (3, 'Filosofía Existencialista', 'Exploración de la libertad', 21);
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (5, 'Literatura del Siglo de Oro', 'Obras literarias destacadas del Renacimiento', 21);
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (6, 'Geometría Fractal', 'Estudio de figuras geométricas ', 21);
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (7, 'Magnetismo y Electricidad', 'Conceptos básicos.', 21);
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (8, 'Psicología del Desarrollo', 'Estudio de los cambios psicológicos.', 21);
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (10, 'Teoría de Juegos', 'Modelos matemáticos de interacción.', 21);
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (12, 'Cálculo Integral', 'Técnicas para calcular áreas y volúmenes bajo curvas.', 21);
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (15, 'Literatura Contemporánea', 'Movimientos literarios.', 21);
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (16, 'Teoría del Caos', 'Sistemas dinámicos no lineales.', 21);
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (17, 'Química Orgánica', 'Estudio de los compuestos orgánicos y sus reacciones.', 21);
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (18, 'Psicología Social', 'Interacciones contextos sociales.', 21);
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (19, 'Medicina Tradicional China', 'Principios.', 21);
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (20, 'Robótica Avanzada', 'Diseño y programación de robots autónomos', 21);
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (21, 'Teoría de la Relatividad', 'Conceptos', 21);
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (22, 'Arquitectura Sostenible', 'Diseño', 21);
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (24, 'Derechos Humanos', 'Principios fundamentales', 21);
+INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (25, 'Economía Global', 'Interacciones económicas entre naciones', 21);
+
+
+
 
 -- Insertar datos en la tabla 'docente' desde una colección.
 INSERT INTO docente (id_docente, nombre, apellido, identificacion)
@@ -158,8 +197,40 @@ FROM
             '1028, Charlotte, Scott',
             '1029, Daniel, Green'
         ));
+            '1000, Alice, Johnson',
+            '1001, Bob, Smith',
+            '1002, Charlie, Williams',
+            '1003, David, Brown',
+            '1004, Emily, Davis',
+            '1005, Frank, Miller',
+            '1006, Grace, Wilson',
+            '1007, Henry, Moore',
+            '1008, Isabella, Taylor',
+            '1009, Jack, Anderson',
+            '1010, Katherine, Thomas',
+            '1011, Liam, Jackson',
+            '1012, Mia, White',
+            '1013, Noah, Harris',
+            '1014, Olivia, Martin',
+            '1015, Peter, Thompson',
+            '1016, Queen, Garcia',
+            '1017, Robert, Martinez',
+            '1018, Sophia, Robinson',
+            '1019, Thomas, Clark',
+            '1020, Ursula, Lewis',
+            '1021, Vincent, Lee',
+            '1022, William, Walker',
+            '1023, Xenia, Hall',
+            '1024, Yolanda, Allen',
+            '1025, Zachary, Young',
+            '1026, Abigail, King',
+            '1027, Benjamin, Wright',
+            '1028, Charlotte, Scott',
+            '1029, Daniel, Green'
+        ));
 
 COMMIT;
+
 
 
 
@@ -281,6 +352,7 @@ VALUES (28, 'Los organismos evolucionan de acuerdo con los cambios ambientales',
 -- Pregunta 27 (Padre)
 INSERT INTO pregunta (id_pregunta, enunciado, es_publica, tipo_pregunta, id_pregunta_compuesta, id_tema, id_docente, estado)
 VALUES (29, '¿Cuál es el proceso completo de la fotosíntesis?', 'S', 'ordenar_conceptos', NULL,26, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 'creada');
+VALUES (29, '¿Cuál es el proceso completo de la fotosíntesis?', 'S', 'ordenar_conceptos', NULL,26, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 'creada');
 
 -- Subpregunta 1 (Hija)
 INSERT INTO pregunta (id_pregunta, enunciado, es_publica, tipo_pregunta, id_pregunta_compuesta, id_tema, id_docente, estado)
@@ -297,10 +369,15 @@ VALUES (32, '¿Cuáles son organelos celulares?', 'S', 'multiple_multiple_respue
 
 
 
+
+
+
 -- RESPUESTAS
 
 -- Respuestas para las preguntas de tipo falso_verdadero
 -- Respuestas para la pregunta 1
+
+
 
 
 INSERT INTO respuesta (id_respuesta, descripcion, es_verdadera, id_pregunta)
@@ -425,6 +502,7 @@ VALUES (40, 'c) Transporte de lípidos', 'f', 20);
 
 -- Respuestas para la pregunta 21
 INSERT INTO respuesta (id_respuesta, descripcion, es_verdadera, id_pregunta)
+VALUES (41, 'a) La selección natural es un mecanismo importante', 't', 21);
 VALUES (41, 'a) La selección natural es un mecanismo importante', 't', 21);
 INSERT INTO respuesta (id_respuesta, descripcion, es_verdadera, id_pregunta)
 VALUES (42, 'b) Los seres vivos no cambian a lo largo del tiempo', 'f', 21);
@@ -559,6 +637,37 @@ FROM
             '1028, Chloe, Moore',
             '1029, Joseph, Taylor'
         ));
+            '1000, Sophia, Smith',
+            '1001, Jackson, Moore',
+            '1002, Emma, Taylor',
+            '1003, Aiden, Anderson',
+            '1004, Olivia, Thomas',
+            '1005, Liam, Jackson',
+            '1006, Ava, White',
+            '1007, Noah, Harris',
+            '1008, Isabella, Martin',
+            '1009, Lucas, Thompson',
+            '1010, Mia, Garcia',
+            '1011, Ethan, Martinez',
+            '1012, Abigail, Robinson',
+            '1013, James, Clark',
+            '1014, Charlotte, Lewis',
+            '1015, Logan, Lee',
+            '1016, Harper, Walker',
+            '1017, Benjamin, Hall',
+            '1018, Evelyn, Allen',
+            '1019, Elijah, Young',
+            '1020, Amelia, King',
+            '1021, Matthew, Wright',
+            '1022, Luna, Scott',
+            '1023, William, Green',
+            '1024, Elizabeth, Brown',
+            '1025, Michael, Davis',
+            '1026, Evelyn, Miller',
+            '1027, Daniel, Wilson',
+            '1028, Chloe, Moore',
+            '1029, Joseph, Taylor'
+        ));
 
 
 -- Insertar datos en la tabla 'grupo' desde una colección.
@@ -599,6 +708,33 @@ FROM
             '224, diurna, Biología L, 2024-1, 1003, 103',
             '225, nocturna, Biología M, 2024-1, 1002, 103'
         ));
+            '200, diurna, Historia A, 2024-1, 1000, 104',
+            '201, nocturna, Historia B, 2024-1, 1001, 104',
+            '202, diurna, Historia C, 2024-1, 1000, 104',
+            '203, nocturna, Historia D, 2024-1, 1001, 104',
+            '204, diurna, Historia E, 2024-1, 1000, 104',
+            '205, nocturna, Historia F, 2024-1, 1001, 104',
+            '206, diurna, Historia G, 2024-1, 1000, 104',
+            '207, nocturna, Historia H, 2024-1, 1001, 104',
+            '208, diurna, Historia I, 2024-1, 1000, 104',
+            '209, nocturna, Historia J, 2024-1, 1001, 104',
+            '210, diurna, Historia K, 2024-1, 1000, 104',
+            '211, nocturna, Historia L, 2024-1, 1001, 104',
+            '212, diurna, Historia M, 2024-1, 1000, 104',
+            '213, nocturna, Biología A, 2024-1, 1002, 103',
+            '214, diurna, Biología B, 2024-1, 1003, 103',
+            '215, nocturna, Biología C, 2024-1, 1002, 103',
+            '216, diurna, Biología D, 2024-1, 1003, 103',
+            '217, nocturna, Biología E, 2024-1, 1002, 103',
+            '218, diurna, Biología F, 2024-1, 1003, 103',
+            '219, nocturna, Biología G, 2024-1, 1002, 103',
+            '220, diurna, Biología H, 2024-1, 1003, 103',
+            '221, nocturna, Biología I, 2024-1, 1002, 103',
+            '222, diurna, Biología J, 2024-1, 1003, 103',
+            '223, nocturna, Biología K, 2024-1, 1002, 103',
+            '224, diurna, Biología L, 2024-1, 1003, 103',
+            '225, nocturna, Biología M, 2024-1, 1002, 103'
+        ));
 COMMIT;
 
 -- Asignar alumnos a los grupos Biología A, Biología B, Historia A e Historia B.
@@ -611,10 +747,15 @@ COMMIT;
 -- Obtener los IDs de los grupos a poblar.
 DECLARE
 v_biologia_a_id  grupo.id_grupo%TYPE;
+v_biologia_a_id  grupo.id_grupo%TYPE;
     v_biologia_b_id  grupo.id_grupo%TYPE;
     v_historia_a_id  grupo.id_grupo%TYPE;
     v_historia_b_id  grupo.id_grupo%TYPE;
 BEGIN
+SELECT id_grupo INTO v_biologia_a_id FROM grupo WHERE nombre = ' Biología A';
+SELECT id_grupo INTO v_biologia_b_id FROM grupo WHERE nombre = ' Biología B';
+SELECT id_grupo INTO v_historia_a_id FROM grupo WHERE nombre = ' Historia A';
+SELECT id_grupo INTO v_historia_b_id FROM grupo WHERE nombre = ' Historia B';
 SELECT id_grupo INTO v_biologia_a_id FROM grupo WHERE nombre = ' Biología A';
 SELECT id_grupo INTO v_biologia_b_id FROM grupo WHERE nombre = ' Biología B';
 SELECT id_grupo INTO v_historia_a_id FROM grupo WHERE nombre = ' Historia A';
@@ -625,7 +766,16 @@ INSERT INTO alumno_grupo (id_grupo, id_alumno)
 SELECT v_biologia_a_id, id_alumno
 FROM alumno
 WHERE id_alumno BETWEEN 1000 AND 1014;
+-- Insertar alumnos con IDs entre 1000 y 1014 en Biología A e Historia A
+INSERT INTO alumno_grupo (id_grupo, id_alumno)
+SELECT v_biologia_a_id, id_alumno
+FROM alumno
+WHERE id_alumno BETWEEN 1000 AND 1014;
 
+INSERT INTO alumno_grupo (id_grupo, id_alumno)
+SELECT v_historia_a_id, id_alumno
+FROM alumno
+WHERE id_alumno BETWEEN 1000 AND 1014;
 INSERT INTO alumno_grupo (id_grupo, id_alumno)
 SELECT v_historia_a_id, id_alumno
 FROM alumno
@@ -636,12 +786,22 @@ INSERT INTO alumno_grupo (id_grupo, id_alumno)
 SELECT v_biologia_b_id, id_alumno
 FROM alumno
 WHERE id_alumno BETWEEN 1015 AND 1029;
+-- Insertar alumnos con IDs entre 1015 y 1029 en Biología B e Historia B
+INSERT INTO alumno_grupo (id_grupo, id_alumno)
+SELECT v_biologia_b_id, id_alumno
+FROM alumno
+WHERE id_alumno BETWEEN 1015 AND 1029;
 
 INSERT INTO alumno_grupo (id_grupo, id_alumno)
 SELECT v_historia_b_id, id_alumno
 FROM alumno
 WHERE id_alumno BETWEEN 1015 AND 1029;
+INSERT INTO alumno_grupo (id_grupo, id_alumno)
+SELECT v_historia_b_id, id_alumno
+FROM alumno
+WHERE id_alumno BETWEEN 1015 AND 1029;
 
+COMMIT;
 COMMIT;
 END;
 /
@@ -1186,16 +1346,25 @@ VALUES (34, NULL, 't', 19, 25);
 --- Examen 2 (Imperio Romano Examen, Grupo 201)
 INSERT INTO presentacion_examen (id_presentacion_examen, tiempo, terminado, calificacion, ip_source, fecha_hora_presentacion, id_examen, id_alumno)
 VALUES (1, 30, 'N', NULL, NULL, NULL, 2, (SELECT id_alumno FROM alumno_grupo WHERE id_grupo = 201 AND ROWNUM = 1));
+--- Examen 2 (Imperio Romano Examen, Grupo 201)
+INSERT INTO presentacion_examen (id_presentacion_examen, tiempo, terminado, calificacion, ip_source, fecha_hora_presentacion, id_examen, id_alumno)
+VALUES (1, 30, 'N', NULL, NULL, NULL, 2, (SELECT id_alumno FROM alumno_grupo WHERE id_grupo = 201 AND ROWNUM = 1));
 
 -- Examen 3 (Evolución Examen, Grupo 200)
+INSERT INTO presentacion_examen (id_presentacion_examen, tiempo, terminado, calificacion, ip_source, fecha_hora_presentacion, id_examen, id_alumno)
+VALUES (2, 30, 'N', NULL, NULL, NULL, 3, (SELECT id_alumno FROM alumno_grupo WHERE id_grupo = 200 AND ROWNUM = 1));
 INSERT INTO presentacion_examen (id_presentacion_examen, tiempo, terminado, calificacion, ip_source, fecha_hora_presentacion, id_examen, id_alumno)
 VALUES (2, 30, 'N', NULL, NULL, NULL, 3, (SELECT id_alumno FROM alumno_grupo WHERE id_grupo = 200 AND ROWNUM = 1));
 
 -- Examen 5 (Biología Celular Avanzado Examen, Grupo 214)
 INSERT INTO presentacion_examen (id_presentacion_examen, tiempo, terminado, calificacion, ip_source, fecha_hora_presentacion, id_examen, id_alumno)
 VALUES (3, 30, 'N', NULL, NULL, NULL, 5, (SELECT id_alumno FROM alumno_grupo WHERE id_grupo = 214 AND ROWNUM = 1));
+INSERT INTO presentacion_examen (id_presentacion_examen, tiempo, terminado, calificacion, ip_source, fecha_hora_presentacion, id_examen, id_alumno)
+VALUES (3, 30, 'N', NULL, NULL, NULL, 5, (SELECT id_alumno FROM alumno_grupo WHERE id_grupo = 214 AND ROWNUM = 1));
 
 -- Examen 14 (Evolución y Revolución Industrial Examen, Grupo 213)
+INSERT INTO presentacion_examen (id_presentacion_examen, tiempo, terminado, calificacion, ip_source, fecha_hora_presentacion, id_examen, id_alumno)
+VALUES (4, 30, 'N', NULL, NULL, NULL, 14, (SELECT id_alumno FROM alumno_grupo WHERE id_grupo = 213 AND ROWNUM = 1));
 INSERT INTO presentacion_examen (id_presentacion_examen, tiempo, terminado, calificacion, ip_source, fecha_hora_presentacion, id_examen, id_alumno)
 VALUES (4, 30, 'N', NULL, NULL, NULL, 14, (SELECT id_alumno FROM alumno_grupo WHERE id_grupo = 213 AND ROWNUM = 1));
 
@@ -1248,16 +1417,16 @@ INSERT INTO presentacion_pregunta (respuesta_correcta, id_pregunta, id_respuesta
 DECLARE
     v_id_bloque_horario NUMBER := 1; -- Contador del ID de bloque horario
 BEGIN
-    FOR dia IN 1..5 LOOP
+FOR dia IN 1..5 LOOP
         -- Iterar sobre las horas del día (7AM a 8PM, excluyendo 1PM - 1:59PM).
         FOR hora IN 7..20 LOOP -- Cambiar el límite superior a 20
             -- Excluir el bloque de tiempo de 1PM a 1:59PM.
             IF hora != 13 THEN
                 -- Calcular la hora de inicio y fin del bloque horario.
                 DECLARE
-                    v_hora_inicio VARCHAR2(10);
+v_hora_inicio VARCHAR2(10);
                     v_hora_fin VARCHAR2(10);
-                BEGIN
+BEGIN
                     v_hora_inicio := TO_CHAR(hora, '09') || ':00:00';
                     v_hora_fin := TO_CHAR(hora + 2, '09') || ':00:00';
 
@@ -1296,10 +1465,12 @@ END;
 ---------------------------------------------------------------------------------------------------------------------------
 
 
+
 -- HORARIO
 
 -- Relacionar dos bloques horarios a cada grupo.
 BEGIN
+FOR grupo_rec IN (SELECT id_grupo FROM grupo) LOOP
 FOR grupo_rec IN (SELECT id_grupo FROM grupo) LOOP
     FOR bloque_rec IN (
         SELECT id_bloque_horario
@@ -1333,6 +1504,8 @@ END;
 -- Insertar registros en la tabla NOTA con calificación 0,
 -- basándose en los registros de ALUMNO_GRUPO.
 
+INSERT INTO nota (valor, id_grupo, ID_ALUMNO)
+SELECT 0, ag.id_grupo, ag.ID_ALUMNO
 INSERT INTO nota (valor, id_grupo, ID_ALUMNO)
 SELECT 0, ag.id_grupo, ag.ID_ALUMNO
 FROM alumno_grupo ag;
