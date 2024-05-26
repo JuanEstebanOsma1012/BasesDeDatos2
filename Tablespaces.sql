@@ -40,7 +40,7 @@ ALTER TABLE docente MOVE TABLESPACE docente;
 ALTER TABLE alumno MOVE TABLESPACE alumno;
 ALTER TABLE examen MOVE TABLESPACE docente; 
 ALTER TABLE pregunta_examen MOVE TABLESPACE docente;
-ALTER TABLE bloque_horiario MOVE TABLESPACE alumno;
+ALTER TABLE bloque_horario MOVE TABLESPACE alumno;
 ALTER TABLE horario MOVE TABLESPACE alumno;
 ALTER TABLE alumno_grupo MOVE TABLESPACE alumno;
 ALTER TABLE nota MOVE TABLESPACE alumno;
