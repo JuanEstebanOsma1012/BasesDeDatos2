@@ -19,7 +19,7 @@ CREATE TABLE alumno_grupo (
 ALTER TABLE alumno_grupo ADD CONSTRAINT alumno_grupo_pk PRIMARY KEY ( id_grupo,
                                                                       id_alumno );
 
-CREATE TABLE bloque_horiario (
+CREATE TABLE bloque_horario (
     id_bloque_horario INTEGER NOT NULL,
     hora_inicio       TIMESTAMP NOT NULL,
     hora_fin          TIMESTAMP NOT NULL,
@@ -28,21 +28,21 @@ CREATE TABLE bloque_horiario (
 );
 
 CREATE INDEX bh_hora_inicio_idx ON
-    bloque_horiario (
+    bloque_horario (
         hora_inicio
     ASC );
 
 CREATE INDEX bh_hora_fin_idx ON
-    bloque_horiario (
+    bloque_horario (
         hora_fin
     ASC );
 
 CREATE INDEX bh_dia_idx ON
-    bloque_horiario (
+    bloque_horario (
         dia
     ASC );
 
-ALTER TABLE bloque_horiario ADD CONSTRAINT bloque_horiario_pk PRIMARY KEY ( id_bloque_horario );
+ALTER TABLE bloque_horario ADD CONSTRAINT bloque_horario_pk PRIMARY KEY ( id_bloque_horario );
 
 CREATE TABLE curso (
     id_curso    INTEGER NOT NULL,
@@ -262,8 +262,8 @@ ALTER TABLE grupo
         REFERENCES docente ( id_docente );
 
 ALTER TABLE horario
-    ADD CONSTRAINT horario_bloque_horiario_fk FOREIGN KEY ( id_bloque_horario )
-        REFERENCES bloque_horiario ( id_bloque_horario );
+    ADD CONSTRAINT horario_bloque_horario_fk FOREIGN KEY ( id_bloque_horario )
+        REFERENCES bloque_horario ( id_bloque_horario );
 
 ALTER TABLE horario
     ADD CONSTRAINT horario_grupo_fk FOREIGN KEY ( id_grupo )
@@ -340,14 +340,14 @@ BEGIN
 END;
 /
 
-CREATE SEQUENCE bloque_horiario_id_bloque_hora START WITH 1 NOCACHE ORDER;
+CREATE SEQUENCE bloque_horario_id_bloque_hora START WITH 1 NOCACHE ORDER;
 
-CREATE OR REPLACE TRIGGER bloque_horiario_id_bloque_hora BEFORE
-    INSERT ON bloque_horiario
+CREATE OR REPLACE TRIGGER bloque_horario_id_bloque_hora BEFORE
+    INSERT ON bloque_horario
     FOR EACH ROW
     WHEN ( new.id_bloque_horario IS NULL )
 BEGIN
-    :new.id_bloque_horario := bloque_horiario_id_bloque_hora.nextval;
+    :new.id_bloque_horario := bloque_horario_id_bloque_hora.nextval;
 END;
 /
 

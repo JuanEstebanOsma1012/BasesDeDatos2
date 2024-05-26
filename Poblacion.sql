@@ -117,45 +117,6 @@ INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (25, 'E
 
 
 
--- Relacionados con Revoluciones del Mundo (id_unidad = 22)
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (1, 'Revolución Industrial', 'Impacto socioeconómico y tecnológico del siglo XIX.',22);
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (11, 'Imperio Romano', 'Historia, gobierno y cultura del antiguo imperio romano.', 23);
-
--- Relacionados con Grandes Imperios (id_unidad = 23)
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (2, 'Ecuaciones Diferenciales', 'Métodos para resolver ecuaciones que contienen derivadas.', 22);
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (13, 'Arte del Renacimiento', 'Obras artísticas y características del Renacimiento.', 23);
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (23, 'Neurociencia Cognitiva', 'Estudio de los procesos mentales y su base neural.', 23);
-
--- Relacionados con Biología Celular: Introducción (id_unidad = 24)
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (26, 'Biología Celular', 'Estudio de la estructura celular.', 24);
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (14, 'Genética Molecular', 'Estudio de la estructura y función de los genes.', 24);
-
--- Relacionados con Evolución: Introducción (id_unidad = 25)
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (4, 'Teoría de la Evolución', 'Principios y mecanismos de la evolución biológica.', 25);
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (9, 'Ecología y Conservación', 'Interacciones entre los organismos y su entorno.', 25);
-
-
--- Datos de tema con id_unidad = 21
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (3, 'Filosofía Existencialista', 'Exploración de la libertad', 21);
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (5, 'Literatura del Siglo de Oro', 'Obras literarias destacadas del Renacimiento', 21);
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (6, 'Geometría Fractal', 'Estudio de figuras geométricas ', 21);
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (7, 'Magnetismo y Electricidad', 'Conceptos básicos.', 21);
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (8, 'Psicología del Desarrollo', 'Estudio de los cambios psicológicos.', 21);
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (10, 'Teoría de Juegos', 'Modelos matemáticos de interacción.', 21);
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (12, 'Cálculo Integral', 'Técnicas para calcular áreas y volúmenes bajo curvas.', 21);
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (15, 'Literatura Contemporánea', 'Movimientos literarios.', 21);
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (16, 'Teoría del Caos', 'Sistemas dinámicos no lineales.', 21);
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (17, 'Química Orgánica', 'Estudio de los compuestos orgánicos y sus reacciones.', 21);
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (18, 'Psicología Social', 'Interacciones contextos sociales.', 21);
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (19, 'Medicina Tradicional China', 'Principios.', 21);
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (20, 'Robótica Avanzada', 'Diseño y programación de robots autónomos', 21);
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (21, 'Teoría de la Relatividad', 'Conceptos', 21);
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (22, 'Arquitectura Sostenible', 'Diseño', 21);
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (24, 'Derechos Humanos', 'Principios fundamentales', 21);
-INSERT INTO tema (id_tema, titulo, descripcion, unidad_id_unidad) VALUES (25, 'Economía Global', 'Interacciones económicas entre naciones', 21);
-
-
-
 
 -- Insertar datos en la tabla 'docente' desde una colección.
 INSERT INTO docente (id_docente, nombre, apellido, identificacion)
@@ -197,40 +158,8 @@ FROM
             '1028, Charlotte, Scott',
             '1029, Daniel, Green'
         ));
-            '1000, Alice, Johnson',
-            '1001, Bob, Smith',
-            '1002, Charlie, Williams',
-            '1003, David, Brown',
-            '1004, Emily, Davis',
-            '1005, Frank, Miller',
-            '1006, Grace, Wilson',
-            '1007, Henry, Moore',
-            '1008, Isabella, Taylor',
-            '1009, Jack, Anderson',
-            '1010, Katherine, Thomas',
-            '1011, Liam, Jackson',
-            '1012, Mia, White',
-            '1013, Noah, Harris',
-            '1014, Olivia, Martin',
-            '1015, Peter, Thompson',
-            '1016, Queen, Garcia',
-            '1017, Robert, Martinez',
-            '1018, Sophia, Robinson',
-            '1019, Thomas, Clark',
-            '1020, Ursula, Lewis',
-            '1021, Vincent, Lee',
-            '1022, William, Walker',
-            '1023, Xenia, Hall',
-            '1024, Yolanda, Allen',
-            '1025, Zachary, Young',
-            '1026, Abigail, King',
-            '1027, Benjamin, Wright',
-            '1028, Charlotte, Scott',
-            '1029, Daniel, Green'
-        ));
 
 COMMIT;
-
 
 
 
@@ -352,7 +281,6 @@ VALUES (28, 'Los organismos evolucionan de acuerdo con los cambios ambientales',
 -- Pregunta 27 (Padre)
 INSERT INTO pregunta (id_pregunta, enunciado, es_publica, tipo_pregunta, id_pregunta_compuesta, id_tema, id_docente, estado)
 VALUES (29, '¿Cuál es el proceso completo de la fotosíntesis?', 'S', 'ordenar_conceptos', NULL,26, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 'creada');
-VALUES (29, '¿Cuál es el proceso completo de la fotosíntesis?', 'S', 'ordenar_conceptos', NULL,26, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 'creada');
 
 -- Subpregunta 1 (Hija)
 INSERT INTO pregunta (id_pregunta, enunciado, es_publica, tipo_pregunta, id_pregunta_compuesta, id_tema, id_docente, estado)
@@ -369,15 +297,10 @@ VALUES (32, '¿Cuáles son organelos celulares?', 'S', 'multiple_multiple_respue
 
 
 
-
-
-
 -- RESPUESTAS
 
 -- Respuestas para las preguntas de tipo falso_verdadero
 -- Respuestas para la pregunta 1
-
-
 
 
 INSERT INTO respuesta (id_respuesta, descripcion, es_verdadera, id_pregunta)
@@ -502,7 +425,6 @@ VALUES (40, 'c) Transporte de lípidos', 'f', 20);
 
 -- Respuestas para la pregunta 21
 INSERT INTO respuesta (id_respuesta, descripcion, es_verdadera, id_pregunta)
-VALUES (41, 'a) La selección natural es un mecanismo importante', 't', 21);
 VALUES (41, 'a) La selección natural es un mecanismo importante', 't', 21);
 INSERT INTO respuesta (id_respuesta, descripcion, es_verdadera, id_pregunta)
 VALUES (42, 'b) Los seres vivos no cambian a lo largo del tiempo', 'f', 21);
@@ -637,37 +559,6 @@ FROM
             '1028, Chloe, Moore',
             '1029, Joseph, Taylor'
         ));
-            '1000, Sophia, Smith',
-            '1001, Jackson, Moore',
-            '1002, Emma, Taylor',
-            '1003, Aiden, Anderson',
-            '1004, Olivia, Thomas',
-            '1005, Liam, Jackson',
-            '1006, Ava, White',
-            '1007, Noah, Harris',
-            '1008, Isabella, Martin',
-            '1009, Lucas, Thompson',
-            '1010, Mia, Garcia',
-            '1011, Ethan, Martinez',
-            '1012, Abigail, Robinson',
-            '1013, James, Clark',
-            '1014, Charlotte, Lewis',
-            '1015, Logan, Lee',
-            '1016, Harper, Walker',
-            '1017, Benjamin, Hall',
-            '1018, Evelyn, Allen',
-            '1019, Elijah, Young',
-            '1020, Amelia, King',
-            '1021, Matthew, Wright',
-            '1022, Luna, Scott',
-            '1023, William, Green',
-            '1024, Elizabeth, Brown',
-            '1025, Michael, Davis',
-            '1026, Evelyn, Miller',
-            '1027, Daniel, Wilson',
-            '1028, Chloe, Moore',
-            '1029, Joseph, Taylor'
-        ));
 
 
 -- Insertar datos en la tabla 'grupo' desde una colección.
@@ -708,33 +599,6 @@ FROM
             '224, diurna, Biología L, 2024-1, 1003, 103',
             '225, nocturna, Biología M, 2024-1, 1002, 103'
         ));
-            '200, diurna, Historia A, 2024-1, 1000, 104',
-            '201, nocturna, Historia B, 2024-1, 1001, 104',
-            '202, diurna, Historia C, 2024-1, 1000, 104',
-            '203, nocturna, Historia D, 2024-1, 1001, 104',
-            '204, diurna, Historia E, 2024-1, 1000, 104',
-            '205, nocturna, Historia F, 2024-1, 1001, 104',
-            '206, diurna, Historia G, 2024-1, 1000, 104',
-            '207, nocturna, Historia H, 2024-1, 1001, 104',
-            '208, diurna, Historia I, 2024-1, 1000, 104',
-            '209, nocturna, Historia J, 2024-1, 1001, 104',
-            '210, diurna, Historia K, 2024-1, 1000, 104',
-            '211, nocturna, Historia L, 2024-1, 1001, 104',
-            '212, diurna, Historia M, 2024-1, 1000, 104',
-            '213, nocturna, Biología A, 2024-1, 1002, 103',
-            '214, diurna, Biología B, 2024-1, 1003, 103',
-            '215, nocturna, Biología C, 2024-1, 1002, 103',
-            '216, diurna, Biología D, 2024-1, 1003, 103',
-            '217, nocturna, Biología E, 2024-1, 1002, 103',
-            '218, diurna, Biología F, 2024-1, 1003, 103',
-            '219, nocturna, Biología G, 2024-1, 1002, 103',
-            '220, diurna, Biología H, 2024-1, 1003, 103',
-            '221, nocturna, Biología I, 2024-1, 1002, 103',
-            '222, diurna, Biología J, 2024-1, 1003, 103',
-            '223, nocturna, Biología K, 2024-1, 1002, 103',
-            '224, diurna, Biología L, 2024-1, 1003, 103',
-            '225, nocturna, Biología M, 2024-1, 1002, 103'
-        ));
 COMMIT;
 
 -- Asignar alumnos a los grupos Biología A, Biología B, Historia A e Historia B.
@@ -747,7 +611,6 @@ COMMIT;
 -- Obtener los IDs de los grupos a poblar.
 DECLARE
 v_biologia_a_id  grupo.id_grupo%TYPE;
-v_biologia_a_id  grupo.id_grupo%TYPE;
     v_biologia_b_id  grupo.id_grupo%TYPE;
     v_historia_a_id  grupo.id_grupo%TYPE;
     v_historia_b_id  grupo.id_grupo%TYPE;
@@ -756,16 +619,7 @@ SELECT id_grupo INTO v_biologia_a_id FROM grupo WHERE nombre = ' Biología A';
 SELECT id_grupo INTO v_biologia_b_id FROM grupo WHERE nombre = ' Biología B';
 SELECT id_grupo INTO v_historia_a_id FROM grupo WHERE nombre = ' Historia A';
 SELECT id_grupo INTO v_historia_b_id FROM grupo WHERE nombre = ' Historia B';
-SELECT id_grupo INTO v_biologia_a_id FROM grupo WHERE nombre = ' Biología A';
-SELECT id_grupo INTO v_biologia_b_id FROM grupo WHERE nombre = ' Biología B';
-SELECT id_grupo INTO v_historia_a_id FROM grupo WHERE nombre = ' Historia A';
-SELECT id_grupo INTO v_historia_b_id FROM grupo WHERE nombre = ' Historia B';
 
--- Insertar alumnos con IDs entre 1000 y 1014 en Biología A e Historia A
-INSERT INTO alumno_grupo (id_grupo, id_alumno)
-SELECT v_biologia_a_id, id_alumno
-FROM alumno
-WHERE id_alumno BETWEEN 1000 AND 1014;
 -- Insertar alumnos con IDs entre 1000 y 1014 en Biología A e Historia A
 INSERT INTO alumno_grupo (id_grupo, id_alumno)
 SELECT v_biologia_a_id, id_alumno
@@ -776,16 +630,7 @@ INSERT INTO alumno_grupo (id_grupo, id_alumno)
 SELECT v_historia_a_id, id_alumno
 FROM alumno
 WHERE id_alumno BETWEEN 1000 AND 1014;
-INSERT INTO alumno_grupo (id_grupo, id_alumno)
-SELECT v_historia_a_id, id_alumno
-FROM alumno
-WHERE id_alumno BETWEEN 1000 AND 1014;
 
--- Insertar alumnos con IDs entre 1015 y 1029 en Biología B e Historia B
-INSERT INTO alumno_grupo (id_grupo, id_alumno)
-SELECT v_biologia_b_id, id_alumno
-FROM alumno
-WHERE id_alumno BETWEEN 1015 AND 1029;
 -- Insertar alumnos con IDs entre 1015 y 1029 en Biología B e Historia B
 INSERT INTO alumno_grupo (id_grupo, id_alumno)
 SELECT v_biologia_b_id, id_alumno
@@ -796,12 +641,7 @@ INSERT INTO alumno_grupo (id_grupo, id_alumno)
 SELECT v_historia_b_id, id_alumno
 FROM alumno
 WHERE id_alumno BETWEEN 1015 AND 1029;
-INSERT INTO alumno_grupo (id_grupo, id_alumno)
-SELECT v_historia_b_id, id_alumno
-FROM alumno
-WHERE id_alumno BETWEEN 1015 AND 1029;
 
-COMMIT;
 COMMIT;
 END;
 /
@@ -911,15 +751,15 @@ VALUES (25, 75, 3, 20, 'Revolución Industrial Avanzado III Examen', 70, TO_DATE
 
 --examen 1
 -- Pregunta 2 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 'f', 2, 1);
 
 -- Pregunta 6 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (30, NULL, 'f', 6, 1);
 
 -- Pregunta 9 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (50, NULL, 'f', 9, 1);
 
 
@@ -934,409 +774,409 @@ VALUES (999, 'verdadero', 't', 999);
 
 -- EXAMEN 2
 -- Pregunta 3 (Imperio Romano)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 'f', 3, 2);
 
 -- Pregunta 7 (Imperio Romano)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 'f', 7, 2);
 
 -- Pregunta 15 (Imperio Romano)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 'f', 15, 2);
 
 -- Pregunta 18 (Imperio Romano)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 'f', 18, 2);
 
 -- Pregunta 23 (Imperio Romano)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 'f', 23, 2);
 
 -- EXAMEN 3
 -- Pregunta 6 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 'f', 6, 3);
 
 -- Pregunta 9 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 'f', 9, 3);
 
 -- Pregunta 14 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 'f', 14, 3);
 
 -- Pregunta 29 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 'f', 29, 3);
 
 --EXAMEN 4
 
 -- Pregunta 4 (Revolución Industrial)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (33, NULL, 'f', 4, 4);
 
 -- Pregunta 10 (Revolución Industrial)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (33, NULL, 'f', 10, 4);
 
 -- Pregunta 16 (Revolución Industrial)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (34, NULL, 'f', 16, 4);
 
 --Examen 5
 
 -- Pregunta 1 (Evolución)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (33, NULL, 'f', 1, 5);
 
 -- Pregunta 5 (Evolución)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (34, NULL, 'f', 5, 5);
 
 -- Pregunta 11 (Evolución)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (33, NULL, 'f', 11, 5);
 
 --Examen 6
 
 -- Pregunta 2 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 'f', 2, 6);
 
 -- Pregunta 5 (Evolución)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 'f', 5, 6);
 
 -- Pregunta 11 (Evolución)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 'f', 11, 6);
 
 -- Pregunta 16 (Evolución)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 'f', 16, 6);
 
 --Examen 7
 
 -- Pregunta 2 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 'f', 2, 7);
 
 -- Pregunta 9 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 'f', 9, 7);
 
 -- Pregunta 14 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 'f', 14, 7);
 
 -- Pregunta 19 (Revolución Industrial)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 'f', 19, 7);
 
 -- Pregunta 24 (Revolución Industrial)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 'f', 25, 7);
 
 --Examen 8
 
 --Pregunta 7 (Imperio Romano)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (33, NULL, 'f', 7, 8);
 
 -- Pregunta 10 (Revolución Industrial)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (33, NULL, 'f', 11, 8);
 
 -- Pregunta 15 (Imperio Romano)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (34, NULL, 'f', 15, 8);
 
 --Examen 9
 
 -- Pregunta 2 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 'f', 2, 9);
 
 -- Pregunta 6 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 'f', 6, 9);
 
 -- Pregunta 9 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 'f', 9, 9);
 
 -- Pregunta 14 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 'f', 20, 9);
 
 --Examen 10
 -- Pregunta 4 (Revolución Industrial)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (33, NULL, 't', 4, 10);
 
 -- Pregunta 10 (Revolución Industrial)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (33, NULL, 't', 10, 10);
 
 -- Pregunta 13 (Revolución Industrial)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (34, NULL, 't', 13, 10);
 
 --Examen 11
 
 -- Pregunta 1 (Evolución)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 't', 1, 11);
 
 -- Pregunta 5 (Evolución)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 't', 5, 11);
 
 -- Pregunta 11 (Evolución)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 't', 11, 11);
 
 -- Pregunta 16 (Evolución)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 't', 16, 11);
 
 -- Pregunta 21 (Evolución)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 't', 21, 11);
 
 --Examen 12
 
 -- Pregunta 3 (Imperio Romano)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 't', 3, 12);
 
 -- Pregunta 8 (Imperio Romano)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 't', 8, 12);
 
 -- Pregunta 15 (Imperio Romano)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 't', 15, 12);
 
 -- Pregunta 23 (Imperio Romano)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 't', 23, 12);
 --Examen 13
 
 -- Pregunta 2 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (33, NULL, 't', 2, 13);
 
 -- Pregunta 6 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (34, NULL, 't', 6, 13);
 
 -- Pregunta 29 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (33, NULL, 't', 29, 13);
 
 --EXAMEN 14
 
 -- Pregunta 5 (Evolución)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 't', 5, 14);
 
 -- Pregunta 11 (Evolución)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 't', 11, 14);
 
 -- Pregunta 16 (Evolución)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 't', 16, 14);
 
 -- Pregunta 21 (Evolución)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 't', 21, 14);
 
 --Examen 15
 
 -- Pregunta 3 (Revolución Industrial)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (33, NULL, 't', 3, 15);
 
 -- Pregunta 8 (Revolución Industrial)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (34, NULL, 't', 8, 15);
 
 -- Pregunta 13 (Revolución Industrial)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (33, NULL, 't', 13, 15);
 
 --Examen 16
 
 -- Pregunta 2 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 't', 2, 16);
 
 -- Pregunta 6 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 't', 6, 16);
 
 -- Pregunta 29 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 't', 29, 16);
 
 -- Pregunta 9 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 't', 9, 16);
 
 --Examen 17
 
 -- Pregunta 1 (Evolución)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 't', 1, 17);
 
 -- Pregunta 5 (Evolución)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 't', 5, 17);
 
 -- Pregunta 11 (Evolución)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 't', 11, 17);
 
 -- Pregunta 16 (Evolución)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 't', 16, 17);
 
 -- Pregunta 21 (Evolución)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 't', 21, 17);
 
 --Examen 18
 
 -- Pregunta 3 (Imperio Romano)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (33, NULL, 't', 3, 18);
 
 -- Pregunta 8 (Imperio Romano)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (34, NULL, 't', 8, 18);
 
 -- Pregunta 13 (Imperio Romano)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (33, NULL, 't', 13, 18);
 
 --Examen 19
 -- Pregunta 2 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 't', 2, 19);
 
 -- Pregunta 6 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 't', 6, 19);
 
 -- Pregunta 9 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 't', 9, 19);
 
 -- Pregunta 29 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 't', 29, 19);
 
 --Examen 20
 
 -- Pregunta 4 (Revolución Industrial)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (33, NULL, 't', 4, 20);
 
 -- Pregunta 8 (Revolución Industrial)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (34, NULL, 't', 8, 20);
 
 -- Pregunta 13 (Revolución Industrial)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (33, NULL, 't', 13, 20);
 
 --Examen 21
 
 -- Pregunta 2 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 't', 2, 21);
 
 -- Pregunta 6 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 't', 6, 21);
 
 -- Pregunta 9 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 't', 9, 21);
 
 -- Pregunta 29 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 't', 29, 21);
 
 --Examen 22
 
 -- Pregunta 3 (Revolución Industrial)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 't', 3, 22);
 
 -- Pregunta 8 (Revolución Industrial)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 't', 8, 22);
 
 -- Pregunta 13 (Revolución Industrial)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 't', 13, 22);
 
 -- Pregunta 18 (Revolución Industrial)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 't', 18, 22);
 
 -- Pregunta 24 (Revolución Industrial)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (20, NULL, 't', 24, 22);
 
 --Examen 23
 
 -- Pregunta 3 (Imperio Romano)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (33, NULL, 't', 3, 23);
 
 -- Pregunta 12 (Imperio Romano)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (34, NULL, 't', 12, 23);
 
 -- Pregunta 18 (Imperio Romano)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (33, NULL, 't', 18, 23);
 
 --Examen 24
 
 -- Pregunta 2 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 't', 2, 24);
 
 -- Pregunta 6 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 't', 6, 24);
 
 -- Pregunta 10 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 't', 10, 24);
 
 -- Pregunta 14 (Biología Celular)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (25, NULL, 't', 14, 24);
 
 ---Examen 25
 
 -- Pregunta 4 (Revolución Industrial)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (33, NULL, 't', 4, 25);
 
 -- Pregunta 9 (Revolución Industrial)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (33, NULL, 't', 9, 25);
 
 -- Pregunta 19 (Revolución Industrial)
-INSERT INTO pregunta_examen (procentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
+INSERT INTO pregunta_examen (porcentaje_examen, tiempo_pregunta, tiene_tiempo_maximo, id_pregunta, id_examen)
 VALUES (34, NULL, 't', 19, 25);
 
 -- PRESENTACION EXAMEN
@@ -1346,25 +1186,16 @@ VALUES (34, NULL, 't', 19, 25);
 --- Examen 2 (Imperio Romano Examen, Grupo 201)
 INSERT INTO presentacion_examen (id_presentacion_examen, tiempo, terminado, calificacion, ip_source, fecha_hora_presentacion, id_examen, id_alumno)
 VALUES (1, 30, 'N', NULL, NULL, NULL, 2, (SELECT id_alumno FROM alumno_grupo WHERE id_grupo = 201 AND ROWNUM = 1));
---- Examen 2 (Imperio Romano Examen, Grupo 201)
-INSERT INTO presentacion_examen (id_presentacion_examen, tiempo, terminado, calificacion, ip_source, fecha_hora_presentacion, id_examen, id_alumno)
-VALUES (1, 30, 'N', NULL, NULL, NULL, 2, (SELECT id_alumno FROM alumno_grupo WHERE id_grupo = 201 AND ROWNUM = 1));
 
 -- Examen 3 (Evolución Examen, Grupo 200)
-INSERT INTO presentacion_examen (id_presentacion_examen, tiempo, terminado, calificacion, ip_source, fecha_hora_presentacion, id_examen, id_alumno)
-VALUES (2, 30, 'N', NULL, NULL, NULL, 3, (SELECT id_alumno FROM alumno_grupo WHERE id_grupo = 200 AND ROWNUM = 1));
 INSERT INTO presentacion_examen (id_presentacion_examen, tiempo, terminado, calificacion, ip_source, fecha_hora_presentacion, id_examen, id_alumno)
 VALUES (2, 30, 'N', NULL, NULL, NULL, 3, (SELECT id_alumno FROM alumno_grupo WHERE id_grupo = 200 AND ROWNUM = 1));
 
 -- Examen 5 (Biología Celular Avanzado Examen, Grupo 214)
 INSERT INTO presentacion_examen (id_presentacion_examen, tiempo, terminado, calificacion, ip_source, fecha_hora_presentacion, id_examen, id_alumno)
 VALUES (3, 30, 'N', NULL, NULL, NULL, 5, (SELECT id_alumno FROM alumno_grupo WHERE id_grupo = 214 AND ROWNUM = 1));
-INSERT INTO presentacion_examen (id_presentacion_examen, tiempo, terminado, calificacion, ip_source, fecha_hora_presentacion, id_examen, id_alumno)
-VALUES (3, 30, 'N', NULL, NULL, NULL, 5, (SELECT id_alumno FROM alumno_grupo WHERE id_grupo = 214 AND ROWNUM = 1));
 
 -- Examen 14 (Evolución y Revolución Industrial Examen, Grupo 213)
-INSERT INTO presentacion_examen (id_presentacion_examen, tiempo, terminado, calificacion, ip_source, fecha_hora_presentacion, id_examen, id_alumno)
-VALUES (4, 30, 'N', NULL, NULL, NULL, 14, (SELECT id_alumno FROM alumno_grupo WHERE id_grupo = 213 AND ROWNUM = 1));
 INSERT INTO presentacion_examen (id_presentacion_examen, tiempo, terminado, calificacion, ip_source, fecha_hora_presentacion, id_examen, id_alumno)
 VALUES (4, 30, 'N', NULL, NULL, NULL, 14, (SELECT id_alumno FROM alumno_grupo WHERE id_grupo = 213 AND ROWNUM = 1));
 
@@ -1409,13 +1240,13 @@ INSERT INTO presentacion_pregunta (respuesta_correcta, id_pregunta, id_respuesta
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
 
--- bloque_horiario
+-- BLOQUE_HORARIO
 
--- Insertar bloques horarios en la tabla bloque_horiario.
+-- Insertar bloques horarios en la tabla BLOQUE_HORARIO.
 
 -- Iterar sobre los días de la semana (Lunes a Viernes).
 DECLARE
-    v_id_bloque_horario NUMBER := 1; -- Contador del ID de bloque horario
+v_id_bloque_horario NUMBER := 1; -- Contador del ID de bloque horario
 BEGIN
 FOR dia IN 1..5 LOOP
         -- Iterar sobre las horas del día (7AM a 8PM, excluyendo 1PM - 1:59PM).
@@ -1431,29 +1262,30 @@ BEGIN
                     v_hora_fin := TO_CHAR(hora + 2, '09') || ':00:00';
 
                     -- Insertar el bloque horario en la tabla.
-                    INSERT INTO bloque_horiario (id_bloque_horario, hora_inicio, hora_fin, lugar, dia)
-                    VALUES (
-                            v_id_bloque_horario,
-                            TO_TIMESTAMP(v_hora_inicio, 'HH24:MI:SS'),
-                            TO_TIMESTAMP(v_hora_fin, 'HH24:MI:SS'),
-                            'Aula ' || (hora - 6), -- Asignar aulas secuencialmente (Aula 1, Aula 2, etc.)
-                            CASE dia
-                                WHEN 1 THEN 'l'
-                                WHEN 2 THEN 'm'
-                                WHEN 3 THEN 'x'
-                                WHEN 4 THEN 'j'
-                                WHEN 5 THEN 'v'
-                                END
-                        );
+INSERT INTO bloque_horario (id_bloque_horario, hora_inicio, hora_fin, lugar, dia)
+VALUES (
+           v_id_bloque_horario,
+           TO_TIMESTAMP(v_hora_inicio, 'HH24:MI:SS'),
+           TO_TIMESTAMP(v_hora_fin, 'HH24:MI:SS'),
+           'Aula ' || (hora - 6), -- Asignar aulas secuencialmente (Aula 1, Aula 2, etc.)
+           CASE dia
+               WHEN 1 THEN 'l'
+               WHEN 2 THEN 'm'
+               WHEN 3 THEN 'x'
+               WHEN 4 THEN 'j'
+               WHEN 5 THEN 'v'
+               END
+       );
 
-                    -- Incrementar el contador del ID de bloque horario
-                    v_id_bloque_horario := v_id_bloque_horario + 1;
-                END;
-            END IF;
-        END LOOP;
-    END LOOP;
+-- Incrementar el contador del ID de bloque horario
+v_id_bloque_horario := v_id_bloque_horario + 1;
+END;
+END IF;
+END LOOP;
+END LOOP;
+
     -- Hacer commit de la transacción
-    COMMIT;
+COMMIT;
 END;
 /
 
@@ -1465,26 +1297,24 @@ END;
 ---------------------------------------------------------------------------------------------------------------------------
 
 
-
 -- HORARIO
 
 -- Relacionar dos bloques horarios a cada grupo.
 BEGIN
 FOR grupo_rec IN (SELECT id_grupo FROM grupo) LOOP
-FOR grupo_rec IN (SELECT id_grupo FROM grupo) LOOP
     FOR bloque_rec IN (
+      SELECT id_bloque_horario
+      FROM bloque_horario
+      WHERE id_bloque_horario NOT IN (
         SELECT id_bloque_horario
-        FROM bloque_horiario
-        WHERE id_bloque_horario NOT IN (
-            SELECT id_bloque_horario
-            FROM horario
-            WHERE id_grupo = grupo_rec.id_grupo
-        )
-        AND ROWNUM <= 2
+        FROM horario
+        WHERE id_grupo = grupo_rec.id_grupo
+      )
+      AND ROWNUM <= 2
     ) LOOP
       INSERT INTO horario (id_bloque_horario, id_grupo)
       VALUES (bloque_rec.id_bloque_horario, grupo_rec.id_grupo);
-    END LOOP;
+END LOOP;
 END LOOP;
 COMMIT;
 END;
@@ -1504,8 +1334,6 @@ END;
 -- Insertar registros en la tabla NOTA con calificación 0,
 -- basándose en los registros de ALUMNO_GRUPO.
 
-INSERT INTO nota (valor, id_grupo, ID_ALUMNO)
-SELECT 0, ag.id_grupo, ag.ID_ALUMNO
 INSERT INTO nota (valor, id_grupo, ID_ALUMNO)
 SELECT 0, ag.id_grupo, ag.ID_ALUMNO
 FROM alumno_grupo ag;
