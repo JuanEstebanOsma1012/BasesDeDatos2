@@ -286,3 +286,6 @@ END;
 
 --Cuando se modifique el precio de un producto, se debe actualizar el precio de los productos de las ventas y el total de la ventas, 
 --de aquellas que no se han comprado (estado = 0) .
+
+
+-- eliminar los datos de todas las tablas
