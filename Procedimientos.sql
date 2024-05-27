@@ -202,12 +202,12 @@ BEGIN
                            'porcentaje_curso' VALUE PORCENTAJE_CURSO,
                            'fecha_hora_inicio' VALUE TO_CHAR(fecha_hora_inicio, 'DD/MM/YYYY'),
                            'fecha_hora_fin' VALUE TO_CHAR(fecha_hora_fin, 'HH24:MI'),
-                           'tema' VALUE titulo
+                           'tema' VALUE '"' || titulo || '"'
                            FORMAT JSON
                    )
            )
     INTO v_json
-    FROM (SELECT e.*, t.titulo
+    FROM (SELECT e.*, t.titulo as titulo
           FROM examen e
                    join tema t on (e.id_tema = t.id_tema)
                    join GRUPO g on (g.ID_GRUPO = p_id_grupo AND e.id_grupo = g.id_grupo)
@@ -216,3 +216,58 @@ BEGIN
                                     WHERE pe.id_alumno = p_id_alumno));
     res := v_json;
 END get_examenes_grupo_pendientes_por_alumno;
+
+-- --------------------------------------------------------------------------------------------------------------------------------------------------------
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+CREATE OR REPLACE PROCEDURE crear_presentacion_examen(
+    -- v_tiempo IN presentacion_examen.tiempo%TYPE,
+    -- v_terminado IN presentacion_exame|n.terminado%TYPE,
+    -- v_ip IN presentacion_examen.ip_source%TYPE,
+    v_fecha_hora_presentacion IN presentacion_examen.fecha_hora_presentacion%TYPE,
+    v_id_examen IN presentacion_examen.id_examen%TYPE,
+    v_id_alumno IN presentacion_examen.id_alumno%TYPE,
+    v_mensaje OUT VARCHAR2 -- Mover al final de la lista de parámetros y utilizar OUT
+)
+    IS
+
+
+BEGIN
+
+
+
+
+
+    INSERT INTO presentacion_examen (tiempo, terminado, calificacion, ip_source, fecha_hora_presentacion, id_examen,
+                                     id_alumno)
+    Values (null, '0', 0, '192.168.0.1', sysdate, v_id_examen, v_id_alumno);
+
+    v_mensaje := 'presentación_examen se ha creado exitosamente';
+
+EXCEPTION
+    WHEN OTHERS THEN
+        v_mensaje := 'Error al crear la presentacion_examen: ' || SQLERRM;
+
+END crear_presentacion_examen;
+/
+
+--Disparador que se encarga de la id
+
+CREATE SEQUENCE presentacion_examen_seq
+    START WITH 40
+    INCREMENT BY 1
+    NOCACHE;
+
+--Se encarga de que el siguiente valor insertado en pregunta tenga id auto-incremental consultando la secuencia
+CREATE OR REPLACE TRIGGER presentacion_examen_bi
+    BEFORE INSERT
+    ON presentacion_examen
+    FOR EACH ROW
+BEGIN
+    :new.id_presentacion_examen := presentacion_examen_seq.NEXTVAL;
+END presentacion_examen_bi;
+/
+
