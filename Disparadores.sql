@@ -30,7 +30,7 @@ BEGIN
     );
 
     IF v_cantidad_preguntas + v_preguntas_disponibles < :NEW.numero_preguntas THEN
-        RAISE_APPLICATION_ERROR(-20002, "no hay suficientes preguntas para llenar el examen");
+        RAISE_APPLICATION_ERROR(-20002, 'no hay suficientes preguntas para llenar el examen');
     END IF;
 
     IF v_cantidad_preguntas < :NEW.numero_preguntas THEN
@@ -55,7 +55,7 @@ BEGIN
                 ) ORDER BY DBMS_RANDOM.RANDOM
             ) WHERE ROWNUM = v_pregunta_seleccionada;
 
-            IF (SELECT id_pregunta_compuesta FROM PREGUNTA WHERE id_pregunta = v_id_pregunta) == NULL THEN
+            IF (SELECT id_pregunta_compuesta FROM PREGUNTA WHERE id_pregunta = v_id_pregunta) = NULL THEN
                 INSERT INTO pregunta_examen (id_examen, id_pregunta, tiene_tiempo_maximo) VALUES (:NEW.id_examen, id_pregunta, 'N');
                 v_preguntas_disponibles := v_preguntas_disponibles - 1;
             ELSE
@@ -79,11 +79,11 @@ CREATE OR REPLACE TRIGGER establecer_preguntas_presentacion
 AFTER INSERT ON presentacion_examen
 FOR EACH ROW
 DECLARE
-
     v_preguntas_disponibles INTEGER;
     v_pregunta_seleccionada INTEGER;
     v_cantidad_preguntas INTEGER;
-
+    v_id_pregunta PREGUNTA.ID_PREGUNTA%TYPE;
+    --
 BEGIN
 
     SELECT numero_preguntas INTO v_preguntas_disponibles FROM examen WHERE id_examen = :NEW.id_examen;

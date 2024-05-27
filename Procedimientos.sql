@@ -234,13 +234,7 @@ CREATE OR REPLACE PROCEDURE crear_presentacion_examen(
 )
     IS
 
-
 BEGIN
-
-
-
-
-
     INSERT INTO presentacion_examen (tiempo, terminado, calificacion, ip_source, fecha_hora_presentacion, id_examen,
                                      id_alumno)
     Values (null, '0', 0, '192.168.0.1', sysdate, v_id_examen, v_id_alumno);
@@ -249,7 +243,7 @@ BEGIN
 
 EXCEPTION
     WHEN OTHERS THEN
-        v_mensaje := 'Error al crear la presentacion_examen: ' || SQLERRM;
+        v_mensaje := 'Error al crear la presentacion_examen:   ' || SQLERRM;
 
 END crear_presentacion_examen;
 /
