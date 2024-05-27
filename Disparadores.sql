@@ -2,6 +2,7 @@
 -- hay suficientes preguntas en el banco para suplir la cantidad de preguntas propias
 
 -- TODO: falta posible validacion del estado del examen
+-- TODO: test missing
 CREATE OR REPLACE TRIGGER agregar_preguntas_examen
 AFTER UPDATE OF estado ON examen
 FOR EACH ROW
@@ -19,10 +20,10 @@ BEGIN
 
     SELECT COUNT(*) INTO v_preguntas_disponibles FROM (
         SELECT id_pregunta FROM pregunta
-        WHERE id_tema = :NEW.id_tema AND es_publica = 'Y'
+        WHERE id_tema = :NEW.id_tema AND es_publica = '1'
         MINUS
         SELECT id_pregunta FROM pregunta
-        WHERE id_tema = :NEW.id_tema AND es_publica = 'Y' AND id_pregunta IN (
+        WHERE id_tema = :NEW.id_tema AND es_publica = '1' AND id_pregunta IN (
             SELECT id_pregunta
             FROM pregunta_examen
             WHERE id_examen = :NEW.id_examen
@@ -30,7 +31,7 @@ BEGIN
     );
 
     IF v_cantidad_preguntas + v_preguntas_disponibles < :NEW.numero_preguntas THEN
-        RAISE_APPLICATION_ERROR(-20002, 'no hay suficientes preguntas para llenar el examen');
+        RAISE_APPLICATION_ERROR(-20002, "no hay suficientes preguntas para llenar el examen");
     END IF;
 
     IF v_cantidad_preguntas < :NEW.numero_preguntas THEN
@@ -43,11 +44,11 @@ BEGIN
                 SELECT * FROM (
                     SELECT id_pregunta
                     FROM pregunta
-                    WHERE id_tema = :NEW.id_tema AND es_publica = 'S'
+                    WHERE id_tema = :NEW.id_tema AND es_publica = '1'
                     MINUS
                     SELECT id_pregunta
                     FROM pregunta
-                    WHERE id_tema = :NEW.id_tema AND es_publica = 'S' AND id_pregunta IN (
+                    WHERE id_tema = :NEW.id_tema AND es_publica = '1' AND id_pregunta IN (
                         SELECT id_pregunta
                         FROM pregunta_examen
                         WHERE id_examen = :NEW.id_examen
@@ -55,7 +56,7 @@ BEGIN
                 ) ORDER BY DBMS_RANDOM.RANDOM
             ) WHERE ROWNUM = v_pregunta_seleccionada;
 
-            IF (SELECT id_pregunta_compuesta FROM PREGUNTA WHERE id_pregunta = v_id_pregunta) = NULL THEN
+            IF (SELECT id_pregunta_compuesta FROM PREGUNTA WHERE id_pregunta = v_id_pregunta) == NULL THEN
                 INSERT INTO pregunta_examen (id_examen, id_pregunta, tiene_tiempo_maximo) VALUES (:NEW.id_examen, id_pregunta, 'N');
                 v_preguntas_disponibles := v_preguntas_disponibles - 1;
             ELSE
@@ -66,25 +67,40 @@ BEGIN
 END;
 
 -- este trigger establece que la hora y fecha de presentacion del examen es la hora en la que se dispara el trigger
+-- TODO: test missing
 CREATE OR REPLACE TRIGGER establecer_hora_presentacion
 BEFORE INSERT ON presentacion_examen
 FOR EACH ROW
 DECLARE
 BEGIN
+
     :NEW.FECHA_HORA_PRESENTACION := SYSDATE;
+
+    -- verifica que aún no se haya pasado la fecha y hora de fin del examen
+    IF :NEW.fecha_hora_presentacion > (SELECT fecha_hora_fin FROM examen WHERE id_examen = :NEW.id_examen) THEN
+        RAISE_APPLICATION_ERROR(-20007, 'la fecha y hora de presentacion excede la fecha y hora de fin del examen');
+    END IF;
+
+    
 END;
 
 -- este trigger establece las preguntas que se presentaran en la presentacion del examen del alumno de forma aleatoria
+-- TODO: test missing
 CREATE OR REPLACE TRIGGER establecer_preguntas_presentacion
 AFTER INSERT ON presentacion_examen
 FOR EACH ROW
 DECLARE
+
     v_preguntas_disponibles INTEGER;
     v_pregunta_seleccionada INTEGER;
     v_cantidad_preguntas INTEGER;
-    v_id_pregunta PREGUNTA.ID_PREGUNTA%TYPE;
-    --
+
 BEGIN
+
+    -- verificar que no se haya pasado de la fecha y hora de fin del examen
+    IF :NEW.fecha_hora_presentacion > (SELECT fecha_hora_fin FROM examen WHERE id_examen = :NEW.id_examen) THEN
+        RAISE_APPLICATION_ERROR(-20007, 'la fecha y hora de presentacion excede la fecha y hora de fin del examen');
+    END IF;
 
     SELECT numero_preguntas INTO v_preguntas_disponibles FROM examen WHERE id_examen = :NEW.id_examen;
     v_cantidad_preguntas := v_preguntas_disponibles;
@@ -112,6 +128,7 @@ BEGIN
 END;
 
 -- este trigger verifica que el tema de la pregunta que se va a adicionar al examen sea exactamente el mismo que el tema del examen
+-- TODO: test missing
 CREATE OR REPLACE TRIGGER verificar_pregunta_examen
 BEFORE INSERT ON pregunta_examen
 FOR EACH ROW
@@ -122,11 +139,12 @@ BEGIN
     SELECT id_tema INTO v_id_tema_examen FROM examen WHERE id_examen = :NEW.id_examen;
     SELECT id_tema INTO v_id_tema_pregunta FROM pregunta WHERE id_pregunta = :NEW.id_pregunta;
     IF v_id_tema_examen != v_id_tema_pregunta THEN
-        RAISE_APPLICATION_ERROR(-20001, 'la pregunta no pertenece al tema del examen');
+        RAISE_APPLICATION_ERROR(-20003, 'la pregunta no pertenece al tema del examen');
     END IF;
 END;
 
 -- este trigger verifica que la pregunta que se va a adicionar al examen no sea una pregunta compuesta
+-- TODO: test missing
 CREATE OR REPLACE TRIGGER verificar_pregunta_compuesta
 BEFORE INSERT ON pregunta_examen
 FOR EACH ROW
@@ -135,12 +153,13 @@ DECLARE
 BEGIN
     SELECT id_pregunta_compuesta INTO v_id_pregunta_compuesta FROM pregunta WHERE id_pregunta = :NEW.id_pregunta;
     IF v_id_pregunta_compuesta != NULL THEN
-        RAISE_APPLICATION_ERROR(-20001, 'la pregunta no puede ser compuesta');
+        RAISE_APPLICATION_ERROR(-20004, 'la pregunta no puede ser compuesta');
     END IF;
 END;
 
 -- este trigger verifica que un examen que ya está en estado publicado no pueda ser modificado o eliminado si algún estudiante ya ha presentado dicho examen
 -- no se toma el estado del examen en cuenta ya que se asume que un examen que ha sido presentado está en estado publicado
+-- TODO: test missing
 CREATE OR REPLACE TRIGGER verificar_examen_presentado
 BEFORE UPDATE OR DELETE ON examen
 FOR EACH ROW
@@ -149,8 +168,7 @@ DECLARE
 BEGIN
     SELECT COUNT(*) INTO v_presentaciones FROM presentacion_examen WHERE id_examen = :OLD.id_examen;
     IF v_presentaciones > 0 THEN
-        RAISE_APPLICATION_ERROR(-20001, 'el examen ya ha sido presentado por un estudiante');
+        RAISE_APPLICATION_ERROR(-20005, 'el examen ya ha sido presentado por un estudiante');
     END IF;
 END;
-
--- este trigger verifica
+    
