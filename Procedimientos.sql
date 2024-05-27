@@ -286,7 +286,7 @@ CREATE OR REPLACE PROCEDURE crear_examen (
 IS
 BEGIN
     INSERT INTO examen ( tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-    VALUES (v_tiempo_max,v_numero_preguntas,  v_porcentaje_curso, v_nombre,v_porcenjate_aprobatorio,v_fecha_hora_inicio,v_fecha_hora_fin,v_num_preguntas_aleatorias,v_id_tema,v_id_docente, v_id_grupo,'creado');
+    VALUES (v_tiempo_max,v_numero_preguntas,  v_porcentaje_curso, v_nombre,v_porcenjate_aprobatorio,v_fecha_hora_inicio,v_fecha_hora_fin,v_num_preguntas_aleatorias,v_id_tema,v_id_docente, v_id_grupo,'EN-CREACION');
 
     v_mensaje := 'el examen se ha creado exitosamente';
     v_error := 'false';
