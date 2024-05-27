@@ -243,20 +243,32 @@ EXCEPTION
 END crear_presentacion_examen;
 /
 
---Disparador que se encarga de la id
-
-CREATE SEQUENCE presentacion_examen_seq
-    START WITH 40
-    INCREMENT BY 1
-    NOCACHE;
-
---Se encarga de que el siguiente valor insertado en pregunta tenga id auto-incremental consultando la secuencia
-CREATE OR REPLACE TRIGGER presentacion_examen_bi
-    BEFORE INSERT
-    ON presentacion_examen
-    FOR EACH ROW
+-- este procedimiento se encarga de calificar el examen una vez presentado
+CREATE OR REPLACE PROCEDURE calificar_examen (
+    v_id_presentacion_examen IN presentacion_examen.id_presentacion_examen%TYPE,
+    v_calificacion IN presentacion_examen.calificacion%TYPE,
+    v_mensaje OUT VARCHAR2
+) IS
 BEGIN
-    :new.id_presentacion_examen := presentacion_examen_seq.NEXTVAL;
-END presentacion_examen_bi;
-/
+    UPDATE presentacion_examen
+    SET calificacion = v_calificacion
+    WHERE id_presentacion_examen = v_id_presentacion_examen;
 
+    v_mensaje := 'Examen calificado exitosamente';
+EXCEPTION
+    WHEN OTHERS THEN
+        v_mensaje := 'Error al calificar el examen: ' || SQLERRM;
+END calificar_examen;
+
+CREATE OR REPLACE PROCEDURE  calificar_pregunta (
+    v_id_presentacion_pregunta IN presentacion_pregunta.id_presentacion_pregunta%TYPE,
+    v_respuesta_correcta IN presentacion_pregunta.respuesta_correcta%TYPE,
+    res OUT CLOB
+) IS
+BEGIN
+    UPDATE presentacion_pregunta
+    SET respuesta_correcta = v_respuesta_correcta
+    WHERE id_presentacion_pregunta = v_id_presentacion_pregunta;
+
+    v_mensaje := 'Pregunta calificada exitosamente';
+END calificar_pregunta;
