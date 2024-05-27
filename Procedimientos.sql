@@ -34,14 +34,21 @@ BEGIN
     end if;
 end;
 
-set serveroutput on;
-declare
-    res char;
-begin
-    login('1000', 'docente', res);
-    dbms_output.put_line(res);
-end;
+-- crear un procedimiento que devuelva el nombre del alumno en base a su id
+CREATE OR REPLACE PROCEDURE obtener_nombre_alumno(v_id IN VARCHAR2, v_nombre OUT VARCHAR2) AS
+    v_nombre_alumno alumno.NOMBRE%TYPE;
+BEGIN
+    select a.NOMBRE into v_nombre_alumno from alumno a where a.ID_ALUMNO = v_id;
+    v_nombre := v_nombre_alumno;
+END;
 
+-- crear un procedimiento que devuelva el nombre del docente en base a su id
+CREATE OR REPLACE PROCEDURE obtener_nombre_docente(v_id IN VARCHAR2, v_nombre OUT VARCHAR2) AS
+    v_nombre_docente docente.NOMBRE%TYPE;
+BEGIN
+    select d.NOMBRE into v_nombre_docente from docente d where d.ID_DOCENTE = v_id;
+    v_nombre := v_nombre_docente;
+END;
 
 ------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------
