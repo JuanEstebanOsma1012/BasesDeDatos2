@@ -154,9 +154,9 @@ BEGIN
 
     SELECT JSON_ARRAYAGG(
                    JSON_OBJECT(
-                           'id_presentacion_examen' VALUE id_presentacion_examen,
-                           'nombre_examen' VALUE nombre_examen,
-                           'nota' VALUE TO_CHAR(CALIFICACION)
+                           'idExamen' VALUE id_presentacion_examen,
+                           'nombreExamen' VALUE nombre_examen,
+                           'calificacion' VALUE TO_CHAR(CALIFICACION)
                            FORMAT JSON
                    )
            )
