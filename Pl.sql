@@ -168,7 +168,7 @@ BEGIN
                    JOIN examen e ON pe.id_examen = e.id_examen
                    JOIN Grupo g ON e.id_grupo = g.id_grupo
           WHERE pe.CALIFICACION IS NOT NULL
-            AND pe.CALIFICACION != 0
+            AND pe.TERMINADO = '1'
             AND pe.id_alumno = p_id_alumno
             AND g.id_grupo = p_id_grupo);
     res := v_json;
@@ -180,8 +180,9 @@ END get_presentacion_examen_alumno_grupo;
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-create or replace procedure get_examenes_grupo(p_id_grupo in number, res out clob) as
+-- Se compara cuales son los examenes que un alumno tiene pendientes por presentar en un grupo específico.
+-- Esto se compara observando cuales son los examenes existentes y restando los examenes que ya ha presentado el alumno.
+create or replace procedure get_examenes_grupo_pendientes_por_alumno(p_id_alumno in number, p_id_grupo in number, res out clob) as
     v_json CLOB;
 BEGIN
     SELECT JSON_ARRAYAGG(
@@ -199,10 +200,12 @@ BEGIN
                    )
            )
     INTO v_json
-    FROM (select e.*, t.TITULO as titulo
-          from examen e
-                   join TEMA t
-                        on ( e.id_tema = t.id_tema)
-                            WHERE id_grupo = p_id_grupo);
+    FROM (SELECT e.*, t.titulo
+          FROM examen e
+                   join tema t on (e.id_tema = t.id_tema)
+                   join GRUPO g on (g.ID_GRUPO = p_id_grupo AND e.id_grupo = g.id_grupo)
+          WHERE e.id_examen NOT IN (SELECT pe.id_examen
+                                    FROM presentacion_examen pe
+                                    WHERE pe.id_alumno = p_id_alumno));
     res := v_json;
-END get_examenes_grupo;
+END get_examenes_grupo_pendientes_por_alumno;
