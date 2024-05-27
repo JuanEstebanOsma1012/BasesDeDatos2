@@ -265,3 +265,40 @@ BEGIN
 END presentacion_examen_bi;
 /
 
+
+-- --------------------------------------------------------------------------------------------------------------------------------------------------------
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+CREATE OR REPLACE PROCEDURE crear_examen (
+    v_nombre IN examen.nombre%TYPE,
+    v_tiempo_max  IN examen.tiempo_max%TYPE,
+    v_numero_preguntas IN examen.numero_preguntas%TYPE,
+    v_num_preguntas_aleatorias IN examen.num_preguntas_aleatorias%TYPE,
+    v_porcentaje_curso IN examen.porcentaje_curso%TYPE,
+    v_fecha_hora_inicio IN examen.fecha_hora_inicio%TYPE,
+    v_fecha_hora_fin IN examen.fecha_hora_fin%TYPE,
+    v_porcenjate_aprobatorio IN examen.porcentaje_aprobatorio%TYPE,
+    v_id_tema         IN examen.id_tema%TYPE,
+    v_id_docente      IN examen.id_docente%TYPE,
+    v_id_grupo        IN examen.id_grupo%TYPE,
+    -- OUT VARIABLES
+    v_mensaje         OUT VARCHAR2, -- Mover al final de la lista de parámetros y utilizar OUT
+    v_error           OUT VARCHAR2 
+)
+IS
+BEGIN
+    INSERT INTO examen ( tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
+    VALUES (v_tiempo_max,v_numero_preguntas,  v_porcentaje_curso, v_nombre,v_porcenjate_aprobatorio,v_fecha_hora_inicio,v_fecha_hora_fin,v_num_preguntas_aleatorias,v_id_tema,v_id_docente, v_id_grupo,'creado');
+
+    v_mensaje := 'el examen se ha creado exitosamente';
+    v_error := 'false';
+
+    EXCEPTION
+     WHEN OTHERS THEN
+            v_mensaje := 'Error al crear el examen: ' || SQLERRM;
+            v_error := 'true';
+END crear_examen;
+/

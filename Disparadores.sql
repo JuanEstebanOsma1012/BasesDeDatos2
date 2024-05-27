@@ -74,6 +74,23 @@ BEGIN
     :NEW.FECHA_HORA_PRESENTACION := SYSDATE;
 END;
 
+
+
+-- TRIGGER QUE SOLO PERMITE LA MODIFICACION DE LA PRESENTACION EXAMEN SI LA FECHA FINAL DEL EXAMEN ASOCIADO NO ES MENOR A LA FECHA ACTUAL
+CREATE OR REPLACE TRIGGER verificar_fecha_presentacion
+BEFORE UPDATE ON presentacion_examen
+FOR EACH ROW
+DECLARE
+    v_fecha_final DATE;
+BEGIN
+    SELECT fecha_hora_fin INTO v_fecha_final FROM examen WHERE id_examen = :NEW.id_examen;
+    IF v_fecha_final < SYSDATE THEN
+        RAISE_APPLICATION_ERROR(-20001, 'no se puede modificar la presentacion del examen porque la fecha final del examen ya ha pasado');
+    END IF;
+END;
+
+
+
 -- este trigger establece las preguntas que se presentaran en la presentacion del examen del alumno de forma aleatoria
 CREATE OR REPLACE TRIGGER establecer_preguntas_presentacion
 AFTER INSERT ON presentacion_examen
