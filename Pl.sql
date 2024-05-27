@@ -111,3 +111,66 @@ BEGIN
         where a.ID_ALUMNO = p_id_usuario;
     end if;
 end;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---
+
+-- obtenerExamenesPresentadosAlumnoGrupo()
+-- @descripción: Se encarga de obtener la presentacion_examen de un alumno específico en un grupo específico
+-- @return: retorna un cursor con todos las presentación_examen que cumplan
+-- DTO-in: id-alumno, id_grupo
+-- DTO-out: Lista de - > (Presentacion_examen)
+
+
+CREATE OR REPLACE PROCEDURE tomar_examenes_alumno_grupo (
+    v_id_alumno       IN alumno.id_alumno%TYPE,
+    v_id_grupo      IN grupo.id_grupo%TYPE,
+    p_examenes OUT SYS_REFCURSOR
+) 
+IS
+BEGIN
+    OPEN p_examenes FOR
+    SELECT pe.*
+    FROM presentacion_examen pe
+    JOIN examen e ON pe.id_examen = e.id_examen
+    JOIN Grupo g ON e.id_grupo = g.id_grupo
+    WHERE pe.id_alumno = v_id_alumno
+    AND g.id_grupo = v_id_grupo;
+END tomar_examenes_alumno_grupo;
+/
+
+
+-- El siguiente es el procedimiento que consume el backend. Este procedimiento a su vez consume el procedimiento anterior.
+-- Este procedimiento devuelve unicamente el nombre del examen que presentó el alumno que viene por parametro, así como la nota de la
+-- presentación del examen y el id de la presentación examen.
+
+create or replace procedure  get_presentacion_examen_alumno_grupo(p_id_alumno in number, p_id_grupo in number, res out clob) as
+    v_examenes SYS_REFCURSOR;
+    v_json     CLOB;
+BEGIN
+
+    SELECT JSON_ARRAYAGG(
+               JSON_OBJECT(
+                       'id_presentacion_examen' VALUE id_presentacion_examen,
+                       'nombre_examen' VALUE nombre_examen,
+                       'nota' VALUE TO_CHAR(CALIFICACION)
+                       FORMAT JSON
+               )
+           )
+    INTO v_json
+    FROM (SELECT pe.id_presentacion_examen id_presentacion_examen,
+                 e.nombre nombre_examen,
+                 pe.CALIFICACION calificacion
+          FROM presentacion_examen pe
+                   JOIN examen e ON pe.id_examen = e.id_examen
+                   JOIN Grupo g ON e.id_grupo = g.id_grupo
+          WHERE pe.id_alumno = p_id_alumno
+            AND g.id_grupo = p_id_grupo);
+    res := v_json;
+
+END get_presentacion_examen_alumno_grupo;
+
