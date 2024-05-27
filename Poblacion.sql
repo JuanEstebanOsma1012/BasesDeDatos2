@@ -1185,19 +1185,19 @@ VALUES (34, NULL, 't', 19, 25);
 
 --- Examen 2 (Imperio Romano Examen, Grupo 201)
 INSERT INTO presentacion_examen (id_presentacion_examen, tiempo, terminado, calificacion, ip_source, fecha_hora_presentacion, id_examen, id_alumno)
-VALUES (1, 30, 'N', NULL, NULL, NULL, 2, (SELECT id_alumno FROM alumno_grupo WHERE id_grupo = 201 AND ROWNUM = 1));
+VALUES (1, 30, '1', 45, '192.168.1.1', SYSDATE, 4, 1015);
 
 -- Examen 3 (Evolución Examen, Grupo 200)
 INSERT INTO presentacion_examen (id_presentacion_examen, tiempo, terminado, calificacion, ip_source, fecha_hora_presentacion, id_examen, id_alumno)
-VALUES (2, 30, 'N', NULL, NULL, NULL, 3, (SELECT id_alumno FROM alumno_grupo WHERE id_grupo = 200 AND ROWNUM = 1));
+VALUES (2, 30, '1', 30, '192.168.1.1', SYSDATE, 3, 1000);
 
 -- Examen 5 (Biología Celular Avanzado Examen, Grupo 214)
 INSERT INTO presentacion_examen (id_presentacion_examen, tiempo, terminado, calificacion, ip_source, fecha_hora_presentacion, id_examen, id_alumno)
-VALUES (3, 30, 'N', NULL, NULL, NULL, 5, (SELECT id_alumno FROM alumno_grupo WHERE id_grupo = 214 AND ROWNUM = 1));
+VALUES (3, 30, '1', 25, '192.168.1.1', SYSDATE, 5, 1015);
 
 -- Examen 14 (Evolución y Revolución Industrial Examen, Grupo 213)
 INSERT INTO presentacion_examen (id_presentacion_examen, tiempo, terminado, calificacion, ip_source, fecha_hora_presentacion, id_examen, id_alumno)
-VALUES (4, 30, 'N', NULL, NULL, NULL, 14, (SELECT id_alumno FROM alumno_grupo WHERE id_grupo = 213 AND ROWNUM = 1));
+VALUES (4, 30, '1', 50, '192.168.1.1', SYSDATE, 14, 1000);
 
 COMMIT;
 
