@@ -263,7 +263,7 @@ END calificar_examen;
 CREATE OR REPLACE PROCEDURE  calificar_pregunta (
     v_id_presentacion_pregunta IN presentacion_pregunta.id_presentacion_pregunta%TYPE,
     v_respuesta_correcta IN presentacion_pregunta.respuesta_correcta%TYPE,
-    res OUT CLOB
+    v_mensaje out varchar2
 ) IS
 BEGIN
     UPDATE presentacion_pregunta
@@ -271,6 +271,7 @@ BEGIN
     WHERE id_presentacion_pregunta = v_id_presentacion_pregunta;
 
     v_mensaje := 'Pregunta calificada exitosamente';
+
 END calificar_pregunta;
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -344,4 +345,4 @@ BEGIN
     join grupo g on c.ID_CURSO = g.ID_CURSO
     where g.ID_GRUPO = p_id_grupo);
 
-END get_temas_por_curso;
+    END get_temas_por_curso;
