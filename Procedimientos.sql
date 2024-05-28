@@ -327,3 +327,21 @@ begin
     join PREGUNTA_EXAMEN pe on p.id_pregunta = pe.id_pregunta
     where pe.id_examen = p_id_examen;
 end get_preguntas_por_examen;
+
+
+create or replace procedure get_temas_por_curso (p_id_grupo IN number, res out clob) IS
+BEGIN
+    SELECT JSON_ARRAYAGG(
+                   JSON_OBJECT(
+                           'id_tema' VALUE id_tema,
+                           'titulo' VALUE '"' || titulo || '"'
+                           FORMAT JSON
+                   )
+           )
+    INTO res
+    FROM (select t.ID_TEMA id_tema, t.TITULO titulo from tema t join unidad u on t.UNIDAD_ID_UNIDAD = u.ID_UNIDAD
+    join curso c on  u.ID_CURSO = c.ID_CURSO
+    join grupo g on c.ID_CURSO = g.ID_CURSO
+    where g.ID_GRUPO = p_id_grupo);
+
+END get_temas_por_curso;
