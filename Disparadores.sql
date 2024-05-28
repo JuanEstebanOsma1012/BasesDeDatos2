@@ -111,6 +111,7 @@ DECLARE
     v_preguntas_disponibles INTEGER;
     v_pregunta_seleccionada INTEGER;
     v_cantidad_preguntas INTEGER;
+    v_es_compueta CHAR(1);
 
 BEGIN
 
@@ -138,8 +139,14 @@ BEGIN
             ) ORDER BY DBMS_RANDOM.RANDOM
         ) WHERE ROWNUM = v_pregunta_seleccionada;
 
-        INSERT INTO presentacion_pregunta (respuesta_correcta, id_presentacion_examen, id_pregunta) VALUES ('N', :NEW.id_presentacion_examen, v_id_pregunta);
+        INSERT INTO presentacion_pregunta (respuesta_correcta, id_presentacion_examen, id_pregunta) VALUES ('0', :NEW.id_presentacion_examen, v_id_pregunta);
         v_preguntas_disponibles := v_preguntas_disponibles - 1;
+
+        IF (SELECT tipo_pregunta FROM pregunta WHERE id_pregunta = v_id_pregunta) = 'compuesta' THEN
+            FOR j IN (SELECT id_pregunta FROM pregunta WHERE id_pregunta_compuesta = v_id_pregunta) LOOP
+                INSERT INTO presentacion_pregunta (respuesta_correcta, id_presentacion_examen, id_pregunta) VALUES ('0', :NEW.id_presentacion_examen, j.id_pregunta);
+            END LOOP;
+        END IF;
 
     END LOOP;
 END;
@@ -160,9 +167,9 @@ BEGIN
     END IF;
 END;
 
--- este trigger verifica que la pregunta que se va a adicionar al examen no sea una pregunta compuesta
+-- este trigger verifica que la pregunta que se va a adicionar al examen no pueda ser una pregunta hija
 -- TODO: test missing
-CREATE OR REPLACE TRIGGER verificar_pregunta_compuesta
+CREATE OR REPLACE TRIGGER verificar_pregunta_hija
 BEFORE INSERT ON pregunta_examen
 FOR EACH ROW
 DECLARE
@@ -170,7 +177,7 @@ DECLARE
 BEGIN
     SELECT id_pregunta_compuesta INTO v_id_pregunta_compuesta FROM pregunta WHERE id_pregunta = :NEW.id_pregunta;
     IF v_id_pregunta_compuesta != NULL THEN
-        RAISE_APPLICATION_ERROR(-20004, 'la pregunta no puede ser compuesta');
+        RAISE_APPLICATION_ERROR(-20004, 'la pregunta no puede ser hija de otra pregunta');
     END IF;
 END;
 
@@ -186,6 +193,22 @@ BEGIN
     SELECT COUNT(*) INTO v_presentaciones FROM presentacion_examen WHERE id_examen = :OLD.id_examen;
     IF v_presentaciones > 0 THEN
         RAISE_APPLICATION_ERROR(-20005, 'el examen ya ha sido presentado por un estudiante');
+    END IF;
+END;
+
+-- este trigger verifica que el alumno que va a presentar un examen pertenezca al grupo al cual se asignó el examen
+-- TODO: test missing
+CREATE OR REPLACE TRIGGER verificar_alumno_grupo
+BEFORE INSERT ON presentacion_examen
+FOR EACH ROW
+DECLARE
+    v_id_grupo examen.id_grupo%TYPE;
+    v_id_grupo_alumno alumno.id_grupo%TYPE;
+BEGIN
+    SELECT id_grupo INTO v_id_grupo FROM examen WHERE id_examen = :NEW.id_examen;
+    SELECT id_grupo INTO v_id_grupo_alumno FROM alumno WHERE id_alumno = :NEW.id_alumno;
+    IF v_id_grupo != v_id_grupo_alumno THEN
+        RAISE_APPLICATION_ERROR(-20006, 'el alumno no pertenece al grupo al cual se asignó el examen');
     END IF;
 END;
     

@@ -243,78 +243,35 @@ EXCEPTION
 END crear_presentacion_examen;
 /
 
---Disparador que se encarga de la id
-
-CREATE SEQUENCE presentacion_examen_seq
-    START WITH 40
-    INCREMENT BY 1
-    NOCACHE;
-
---Se encarga de que el siguiente valor insertado en pregunta tenga id auto-incremental consultando la secuencia
-CREATE OR REPLACE TRIGGER presentacion_examen_bi
-    BEFORE INSERT
-    ON presentacion_examen
-    FOR EACH ROW
+-- este procedimiento se encarga de calificar el examen una vez presentado
+CREATE OR REPLACE PROCEDURE calificar_examen (
+    v_id_presentacion_examen IN presentacion_examen.id_presentacion_examen%TYPE,
+    v_calificacion IN presentacion_examen.calificacion%TYPE,
+    v_mensaje OUT VARCHAR2
+) IS
 BEGIN
-    :new.id_presentacion_examen := presentacion_examen_seq.NEXTVAL;
-END presentacion_examen_bi;
-/
+    UPDATE presentacion_examen
+    SET calificacion = v_calificacion
+    WHERE id_presentacion_examen = v_id_presentacion_examen;
 
+    v_mensaje := 'Examen calificado exitosamente';
+EXCEPTION
+    WHEN OTHERS THEN
+        v_mensaje := 'Error al calificar el examen: ' || SQLERRM;
+END calificar_examen;
 
--- --------------------------------------------------------------------------------------------------------------------------------------------------------
--- ---------------------------------------------------------------------------------------------------------------------------------------------------------
--- ---------------------------------------------------------------------------------------------------------------------------------------------------------
--- ---------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-CREATE OR REPLACE PROCEDURE crear_examen (
-    v_nombre IN examen.nombre%TYPE,
-    v_tiempo_max  IN examen.tiempo_max%TYPE,
-    v_numero_preguntas IN examen.numero_preguntas%TYPE,
-    v_num_preguntas_aleatorias IN examen.num_preguntas_aleatorias%TYPE,
-    v_porcentaje_curso IN examen.porcentaje_curso%TYPE,
-    v_fecha_hora_inicio IN examen.fecha_hora_inicio%TYPE,
-    v_fecha_hora_fin IN examen.fecha_hora_fin%TYPE,
-    v_porcenjate_aprobatorio IN examen.porcentaje_aprobatorio%TYPE,
-    v_id_tema         IN examen.id_tema%TYPE,
-    v_id_docente      IN examen.id_docente%TYPE,
-    v_id_grupo        IN examen.id_grupo%TYPE,
-    -- OUT VARIABLES
-    v_mensaje         OUT VARCHAR2, -- Mover al final de la lista de parámetros y utilizar OUT
-    v_error           OUT VARCHAR2
-)
-IS
+CREATE OR REPLACE PROCEDURE  calificar_pregunta (
+    v_id_presentacion_pregunta IN presentacion_pregunta.id_presentacion_pregunta%TYPE,
+    v_respuesta_correcta IN presentacion_pregunta.respuesta_correcta%TYPE,
+    res OUT CLOB
+) IS
 BEGIN
-    INSERT INTO examen ( tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-    VALUES (v_tiempo_max,v_numero_preguntas,  v_porcentaje_curso, v_nombre,v_porcenjate_aprobatorio,v_fecha_hora_inicio,v_fecha_hora_fin,v_num_preguntas_aleatorias,v_id_tema,v_id_docente, v_id_grupo,'EN-CREACION');
+    UPDATE presentacion_pregunta
+    SET respuesta_correcta = v_respuesta_correcta
+    WHERE id_presentacion_pregunta = v_id_presentacion_pregunta;
 
-    v_mensaje := 'el examen se ha creado exitosamente';
-    v_error := 'false';
-
-    EXCEPTION
-     WHEN OTHERS THEN
-            v_mensaje := 'Error al crear el examen: ' || SQLERRM;
-            v_error := 'true';
-END crear_examen;
-/
-
-create or replace procedure get_temas_por_curso (p_id_grupo IN number, res out clob) IS
-BEGIN
-    SELECT JSON_ARRAYAGG(
-                   JSON_OBJECT(
-                           'id_tema' VALUE id_tema,
-                           'titulo' VALUE '"' || titulo || '"'
-                           FORMAT JSON
-                   )
-           )
-    INTO res
-    FROM (select t.ID_TEMA id_tema, t.TITULO titulo from tema t join unidad u on t.UNIDAD_ID_UNIDAD = u.ID_UNIDAD
-    join curso c on  u.ID_CURSO = c.ID_CURSO
-    join grupo g on c.ID_CURSO = g.ID_CURSO
-    where g.ID_GRUPO = p_id_grupo);
-
-END get_temas_por_curso;
-
+    v_mensaje := 'Pregunta calificada exitosamente';
+END calificar_pregunta;
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -330,17 +287,17 @@ CREATE OR REPLACE PROCEDURE crear_pregunta (
     v_id_tema         IN pregunta.id_tema%TYPE,
     v_id_docente      IN pregunta.id_docente%TYPE,
     v_mensaje         OUT VARCHAR2 -- Mover al final de la lista de parámetros y utilizar OUT
-) 
+)
 IS
 BEGIN
     INSERT INTO pregunta (enunciado, es_publica, tipo_pregunta, id_tema, id_docente, estado)
     VALUES (v_enunciado, v_es_publica, v_tipo_pregunta, v_id_tema, v_id_docente, 'creada');
     v_mensaje := 'Pregunta creada exitosamente';
-    
+
     EXCEPTION
      WHEN OTHERS THEN
             v_mensaje := 'Error al crear la pregunta: ' || SQLERRM;
-    
+
 END crear_pregunta;
 /
 
