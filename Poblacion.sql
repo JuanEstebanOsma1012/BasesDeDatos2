@@ -169,7 +169,7 @@ INSERT INTO pregunta (id_pregunta, enunciado, es_publica, tipo_pregunta, id_preg
 VALUES (1, '¿La selección natural es un mecanismo importante en la evolución?', 'S', 'falso_verdadero', NULL, 4, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 'creada');
 
 -- Pregunta 2
-INSERT INTO pregunta (id_pregunta, enunciado, es_p  ublica, tipo_pregunta, id_pregunta_compuesta, id_tema, id_docente, estado)
+INSERT INTO pregunta (id_pregunta, enunciado, es_publica, tipo_pregunta, id_pregunta_compuesta, id_tema, id_docente, estado)
 VALUES (2, '¿Cuál es el organelo responsable de la síntesis de proteínas en la célula?', 'S', 'falso_verdadero', NULL, 26, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 'creada');
 
 -- Pregunta 3
