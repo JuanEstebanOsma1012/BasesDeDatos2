@@ -649,104 +649,103 @@ END;
 ---Creacion de examenes
 -- Examen 1
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (1, 90, 3, 20, 'Biología Celular Examen', 70, TO_DATE('2024-05-15 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-05-15 10:30:00', 'YYYY-MM-DD HH24:MI:SS'), 2, 26, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 213, 'activo');
+VALUES (1, 90, 3, 20, 'Biología Celular Examen', 70, '2024-05-15 09:00:00', '2024-05-15 10:30:00', 2, 26, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 213, 'activo');
 
 -- Examen 2
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (2, 120, 5, 15, 'Imperio Romano Examen', 65, TO_DATE('2024-05-16 10:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-05-16 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 3, 11, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 201, 'activo');
+VALUES (2, 120, 5, 15, 'Imperio Romano Examen', 65, '2024-05-16 10:00:00', '2024-05-16 12:00:00', 3, 11, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 201, 'activo');
 
 -- Examen 3
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (3, 60, 4, 10, 'Evolución Examen', 75, TO_DATE('2024-05-17 14:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-05-17 15:00:00', 'YYYY-MM-DD HH24:MI:SS'), 2, 4, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 200, 'activo');
+VALUES (3, 60, 4, 10, 'Evolución Examen', 75, '2024-05-17 14:00:00', '2024-05-17 15:00:00', 2, 4, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 200, 'activo');
 
 -- Examen 4
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (4, 90, 3, 25, 'Revolución Industrial Examen', 60, TO_DATE('2024-05-18 13:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-05-18 14:30:00', 'YYYY-MM-DD HH24:MI:SS'), 2, 1, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 201, 'activo');
+VALUES (4, 90, 3, 25, 'Revolución Industrial Examen', 60, '2024-05-18 13:00:00', '2024-05-18 14:30:00', 2, 1, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 201, 'activo');
 
 -- Examen 5
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (5, 75, 3, 20, 'Biología Celular Avanzado Examen', 70, TO_DATE('2024-05-19 11:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-05-19 12:15:00', 'YYYY-MM-DD HH24:MI:SS'), 1, 26, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 214, 'activo');
+VALUES (5, 75, 3, 20, 'Biología Celular Avanzado Examen', 70, '2024-05-19 11:00:00', '2024-05-19 12:15:00', 1, 26, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 214, 'activo');
 
 -- Examen 6
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (6, 90, 4, 15, 'Evolución y Biología Celular Examen', 65, TO_DATE('2024-05-20 10:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-05-20 11:30:00', 'YYYY-MM-DD HH24:MI:SS'), 2, 4, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 213, 'activo');
+VALUES (6, 90, 4, 15, 'Evolución y Biología Celular Examen', 65, '2024-05-20 10:00:00', '2024-05-20 11:30:00', 2, 4, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 213, 'activo');
 
 -- Examen 7
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (7, 120, 5, 20, 'biología celular examen', 70, TO_DATE('2024-05-21 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-05-21 11:00:00', 'YYYY-MM-DD HH24:MI:SS'), 3, 26, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 214, 'activo');
+VALUES (7, 120, 5, 20, 'biología celular examen', 70, '2024-05-21 09:00:00', '2024-05-21 11:00:00', 3, 26, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 214, 'activo');
 
 -- Examen 8
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (8, 60, 3, 10, 'Imperio Romano Repaso Examen', 75, TO_DATE('2024-05-22 13:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-05-22 14:00:00', 'YYYY-MM-DD HH24:MI:SS'), 2, 11, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 200, 'activo');
+VALUES (8, 60, 3, 10, 'Imperio Romano Repaso Examen', 75, '2024-05-22 13:00:00', '2024-05-22 14:00:00', 2, 11, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 200, 'activo');
 
 -- Examen 9
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (9, 90, 4, 25, 'celular raras examen', 60, TO_DATE('2024-05-23 14:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-05-23 15:30:00', 'YYYY-MM-DD HH24:MI:SS'), 2, 26, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 213, 'activo');
+VALUES (9, 90, 4, 25, 'celular raras examen', 60, '2024-05-23 14:00:00', '2024-05-23 15:30:00', 2, 26, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 213, 'activo');
 
 -- Examen 10
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (10, 75, 3, 20, 'Revolución Industrial Resumen Examen', 70, TO_DATE('2024-05-24 11:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-05-24 12:15:00', 'YYYY-MM-DD HH24:MI:SS'), 1, 1, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 201, 'activo');
+VALUES (10, 75, 3, 20, 'Revolución Industrial Resumen Examen', 70, '2024-05-24 11:00:00', '2024-05-24 12:15:00', 1, 1, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 201, 'activo');
 
 -- Examen 11
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (11, 120, 5, 15, 'Evolución y Biología Celular II Examen', 65, TO_DATE('2024-05-25 10:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-05-25 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 3, 4, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 214, 'activo');
+VALUES (11, 120, 5, 15, 'Evolución y Biología Celular II Examen', 65, '2024-05-25 10:00:00', '2024-05-25 12:00:00', 3, 4, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 214, 'activo');
 
 -- Examen 12
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (12, 90, 4, 20, 'Imperio Romano y Revolución Industrial Examen', 70, TO_DATE('2024-05-26 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-05-26 10:30:00', 'YYYY-MM-DD HH24:MI:SS'), 2, 1, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 200, 'activo');
+VALUES (12, 90, 4, 20, 'Imperio Romano y Revolución Industrial Examen', 70, '2024-05-26 09:00:00', '2024-05-26 10:30:00', 2, 1, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 200, 'activo');
 
 -- Examen 13
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (13, 60, 3, 10, 'Biología Celular Repaso Examen', 75, TO_DATE('2024-05-27 13:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-05-27 14:00:00', 'YYYY-MM-DD HH24:MI:SS'), 2, 26, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 213, 'activo');
+VALUES (13, 60, 3, 10, 'Biología Celular Repaso Examen', 75, '2024-05-27 13:00:00', '2024-05-27 14:00:00', 2, 26, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 213, 'activo');
 
 -- Examen 14
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (14, 90, 4, 25, 'Evolución y Revolución Industrial Examen', 60, TO_DATE('2024-05-28 14:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-05-28 15:30:00', 'YYYY-MM-DD HH24:MI:SS'), 2, 4, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 213, 'activo');
+VALUES (14, 90, 4, 25, 'Evolución y Revolución Industrial Examen', 60, '2024-05-28 14:00:00', '2024-05-28 15:30:00', 2, 4, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 213, 'activo');
 
 -- Examen 15
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (15, 75, 3, 20, 'Revolución Industrial Avanzado Examen', 70, TO_DATE('2024-05-29 11:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-05-29 12:15:00', 'YYYY-MM-DD HH24:MI:SS'), 1, 1, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 201, 'activo');
+VALUES (15, 75, 3, 20, 'Revolución Industrial Avanzado Examen', 70, '2024-05-29 11:00:00', '2024-05-29 12:15:00', 1, 1, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 201, 'activo');
 
 -- Examen 16
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (16, 90, 4, 15, 'Biología Celular y Revolución Industrial II Examen', 65, TO_DATE('2024-05-30 10:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-05-30 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 3, 26, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 214, 'activo');
+VALUES (16, 90, 4, 15, 'Biología Celular y Revolución Industrial II Examen', 65, '2024-05-30 10:00:00', '2024-05-30 12:00:00', 3, 26, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 214, 'activo');
 
 -- Examen 17
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (17, 120, 5, 20, 'Evolución y Revolución Industrial II Examen', 70, TO_DATE('2024-05-31 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-05-31 11:00:00', 'YYYY-MM-DD HH24:MI:SS'), 3, 4, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 213, 'activo');
+VALUES (17, 120, 5, 20, 'Evolución y Revolución Industrial II Examen', 70, '2024-05-31 09:00:00', '2024-05-31 11:00:00', 3, 4, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 213, 'activo');
 
 -- Examen 18
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (18, 60, 3, 10, 'Imperio Romano Repaso II Examen', 75, TO_DATE('2024-06-01 13:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-06-01 14:00:00', 'YYYY-MM-DD HH24:MI:SS'), 2, 11, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 200, 'activo');
+VALUES (18, 60, 3, 10, 'Imperio Romano Repaso II Examen', 75, '2024-06-01 13:00:00', '2024-06-01 14:00:00', 2, 11, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 200, 'activo');
 
 -- Examen 19
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (19, 90, 4, 25, 'Biología Celular y Evolución Examen', 60, TO_DATE('2024-06-02 14:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-06-02 15:30:00', 'YYYY-MM-DD HH24:MI:SS'), 2, 26, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 213, 'activo');
+VALUES (19, 90, 4, 25, 'Biología Celular y Evolución Examen', 60, '2024-06-02 14:00:00', '2024-06-02 15:30:00', 2, 26, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 213, 'activo');
 
 -- Examen 20
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (20, 75, 3, 20, 'Revolución Industrial Avanzado II Examen', 70, TO_DATE('2024-06-03 11:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-06-03 12:15:00', 'YYYY-MM-DD HH24:MI:SS'), 1, 1, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 201, 'activo');
+VALUES (20, 75, 3, 20, 'Revolución Industrial Avanzado II Examen', 70, '2024-06-03 11:00:00', '2024-06-03 12:15:00', 1, 1, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 201, 'activo');
 
 -- Examen 21
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (21, 90, 4, 15, 'Biología Celular y Revolución Industrial III Examen', 65, TO_DATE('2024-06-04 10:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-06-04 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 3, 26, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 214, 'activo');
+VALUES (21, 90, 4, 15, 'Biología Celular y Revolución Industrial III Examen', 65, '2024-06-04 10:00:00', '2024-06-04 12:00:00', 3, 26, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 214, 'activo');
 
 -- Examen 22
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (22, 120, 5, 20, 'Evolución y Revolución Industrial III Examen', 70, TO_DATE('2024-06-05 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-06-05 11:00:00', 'YYYY-MM-DD HH24:MI:SS'), 3, 4, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 213, 'activo');
+VALUES (22, 120, 5, 20, 'Evolución y Revolución Industrial III Examen', 70, '2024-06-05 09:00:00', '2024-06-05 11:00:00', 3, 4, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 213, 'activo');
 
 -- Examen 23
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (23, 60, 3, 10, 'Imperio Romano Repaso III Examen', 75, TO_DATE('2024-06-06 13:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-06-06 14:00:00', 'YYYY-MM-DD HH24:MI:SS'), 2, 11, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 200, 'activo');
+VALUES (23, 60, 3, 10, 'Imperio Romano Repaso III Examen', 75, '2024-06-06 13:00:00', '2024-06-06 14:00:00', 2, 11, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 200, 'activo');
 
 -- Examen 24
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (24, 90, 4, 25, 'Biología Celular y Evolución II Examen', 60, TO_DATE('2024-06-07 14:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-06-07 15:30:00', 'YYYY-MM-DD HH24:MI:SS'), 2, 26, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 213, 'activo');
+VALUES (24, 90, 4, 25, 'Biología Celular y Evolución II Examen', 60, '2024-06-07 14:00:00', '2024-06-07 15:30:00', 2, 26, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 213, 'activo');
 
 -- Examen 25
 INSERT INTO examen (id_examen, tiempo_max, numero_preguntas, porcentaje_curso, nombre, porcentaje_aprobatorio, fecha_hora_inicio, fecha_hora_fin, num_preguntas_aleatorias, id_tema, id_docente, id_grupo, estado)
-VALUES (25, 75, 3, 20, 'Revolución Industrial Avanzado III Examen', 70, TO_DATE('2024-06-08 11:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2024-06-08 12:15:00', 'YYYY-MM-DD HH24:MI:SS'), 1, 1, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 201, 'activo');
-
+VALUES (25, 75, 3, 20, 'Revolución Industrial Avanzado III Examen', 70, '2024-06-08 11:00:00', '2024-06-08 12:15:00', 1, 1, ROUND(DBMS_RANDOM.VALUE(1000, 1029)), 201, 'activo');
 -- PREGUNTA_EXAMEN
 
 --examen 1
